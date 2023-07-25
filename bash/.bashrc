@@ -2,6 +2,9 @@
 # cp.bashrc
 #================================================
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # Ensure proper colors
 export TERM="xterm-256color"
 
@@ -9,11 +12,13 @@ export TERM="xterm-256color"
 
 # Use vim keybindings:
 set -o vi
+# Ignore case when Tab completing
+bind "set completion-ignore-case on"
 
 # Bash history
 HISTSIZE=5000
 HISTFILESIZE=5000
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignorespace:erasedups
 
 # Set manpager
 #================================================
@@ -24,9 +29,6 @@ HISTCONTROL=ignoreboth
 # Move to the start and end of functions with [[ and ]] 
 # Move around comments with ]" and ["
 export MANPAGER="vim -M +MANPAGER -"
-
-# Less as manpager (default)
-#export MANPAGER="less"
 
 # Prompt
 #================================================
@@ -79,9 +81,37 @@ alias rm='rm -i'
 
 # Faster navigation to config files
 #------------------------------------------------
+alias cdconfig='cd $HOME/config-repo/ && ll'
 alias vimrc='vim $HOME/config-repo/vim/.vimrc'
 alias bashrc='vim $HOME/config-repo/bash/.bashrc'
 
+# Shutdown
+#------------------------------------------------
+alias restart='shutdown -r now'
+
+# Grep
+#------------------------------------------------
+alias grep='grep --color=auto'
+alias fontgrep='fc-list | grep -i --color=auto'
+
+# Pacman
+#------------------------------------------------
+alias pacupdate='pacman -Syu'
+alias pacsearch='pacman -Ss'
+
+# yt download
+#------------------------------------------------
+alias yta-best='yt-dlp --extract-audio --audio-format best'
+alias yta-mp3='yt-dlp --extract-audio --audio-format mp3'
+alias ytv-best='yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 '
+
+# Fetch
+#------------------------------------------------
+alias fetch='clear && neofetch'
+
 # Git
 #------------------------------------------------
-alias gitpush='git push -u origin main'
+alias gstat='git status'
+alias gdiff='git diff --staged'			#Diff unadded changes
+alias gcommit='git commit -m'
+alias gpush='git push -u origin main'
