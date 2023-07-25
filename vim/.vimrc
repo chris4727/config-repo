@@ -58,7 +58,15 @@ set hlsearch
 let mapleader=" "
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
-nnoremap <leader>s :source ~/.vimrc<CR>
+nnoremap <leader>v :source ~/.vimrc<CR>
+" Quick save
+nnoremap <leader>w :w<CR>
+" Toggle dark/light mode
+nnoremap <leader>l :set background=light<CR>
+nnoremap <leader>d :set background=dark<CR>
+"nnoremap <leader>f :FZF<CR>
+" Vertical split
+nnoremap <leader>s <C-w>v<C-w>l
 
 " Set navigation to center cursor
 nnoremap <C-d> <C-d>zz
@@ -95,8 +103,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
+
+" Plugins under consideration
+"Plug 'junegunn/fzf.vim'
+"Plug 'dmerejkowsky/vim-ale.vim'
+
 "Install new plugins using
 ":source %
 ":PlugInstall
@@ -118,6 +132,22 @@ nnoremap <F11> :Goyo<cr>
 "F12 Activate reading with focus mode with F12
 nmap <F12> :Goyo <bar> Limelight!!<CR>"
 
+" Lightline settings
+"------------------------------------------------
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ }
+
+" Gruvbox settings
+"------------------------------------------------
+set termguicolors
+set background=dark
+let g:gruvbox_contrast_dark = 'light'
+let g:gruvbox_contrast_light = 'hard'
+colorscheme gruvbox
+
 "VimWiki settings.
 "------------------------------------------------
 " Set VimWiki to use markdown syntax:
@@ -125,23 +155,16 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 let g:vimwiki_list = [{'path': '~/Documents/VimWiki',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
-" Color Settings
-"================================================
-"Gruvbox dark colorscheme
-"set termguicolors
-set background=dark
-colorscheme gruvbox
-
 " Status line
 "================================================
-set statusline=
+"set statusline=
 " Run <:so $VIMRUNTIME/syntax/hitest.vim> to view available colors to 
 " enter into next line
-set statusline+=%#StatusLineNC#
-set statusline+=\ %F\ %M\ %Y\ %R
+"set statusline+=%#StatusLineNC#
+"set statusline+=\ %F\ %M\ %Y\ %R
 " Use a divider to separate the left and right side
-set statusline+=%=
+"set statusline+=%=
 " Status line right side
-set statusline+=\ %l/%L\ [%c]\ %p%%
+"set statusline+=\ %l/%L\ [%c]\ %p%%
 " Show the status on the second to last line
-set laststatus=2
+"set laststatus=2
