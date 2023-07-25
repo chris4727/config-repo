@@ -81,3 +81,7 @@ alias rm='rm -i'
 #------------------------------------------------
 alias vimrc='vim $HOME/config-repo/vim/.vimrc'
 alias bashrc='vim $HOME/config-repo/bash/.bashrc'
+
+# Git
+#------------------------------------------------
+alias gitpush='git push -u origin main'
