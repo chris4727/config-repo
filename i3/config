@@ -53,6 +53,7 @@ new_window pixel 1
 # Set inner/outer gaps
 gaps inner 10
 gaps outer 0
+smart_gaps on
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -392,6 +393,7 @@ for_window [window_role="About"] floating enable
 
 # set border of floating window
 for_window [class="urxvt"] border pixel 1
+smart_borders on
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
