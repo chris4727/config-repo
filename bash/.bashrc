@@ -112,6 +112,6 @@ alias fetch='clear && neofetch'
 # Git
 #------------------------------------------------
 alias gstat='git status'
-alias gdiff='git diff --staged'			#Diff unadded changes
+alias gdiff='git diff origin/main'			#Diff staged changes
 alias gcommit='git commit -m'
 alias gpush='git push -u origin main'
