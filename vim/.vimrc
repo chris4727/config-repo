@@ -140,7 +140,7 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'Tomorrow_Night',
       \ }
 
 " Gruvbox settings
