@@ -1,9 +1,9 @@
-"================================================
+"=============================================================================
 " .vimrc
-"================================================
+"=============================================================================
  
 " General settings
-"================================================
+"=============================================================================
 set nocompatible
 syntax on
 set encoding=utf-8
@@ -18,13 +18,14 @@ set history=1000
 set guifont=Fira\ Code\ Nerdfont:12
 
 " Layout
-"================================================
+"=============================================================================
 set shiftwidth=4
 set tabstop=4
 set autoindent
 
 " Line wrapping
-"================================================
+"=============================================================================
+" To wrap line at end of wrap point, use `gqq'
 "set nowrap
 "set textwidth=72
 "Set the character number where colorcolumn appears
@@ -35,20 +36,20 @@ highlight ColorColumn guibg=Black
 highlight ColorColumn ctermbg=0
 
 " Enable autocomplete:
-"================================================
+"=============================================================================
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.img,.xlsx
 
 " Spellcheck
-"================================================
+"=============================================================================
 set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
 "set spelllang=eng_us "Add new iso codes comma separated.
 
 " Search
-"================================================
+"=============================================================================
 set incsearch
 set ignorecase
 set smartcase
@@ -56,7 +57,7 @@ set showmatch
 set hlsearch
 
 " Key remaps
-"================================================
+"=============================================================================
 let mapleader=" "
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
@@ -92,7 +93,7 @@ nnoremap <C-left> <C-w>>
 nnoremap <C-right> <C-w><
 
 " Vim-plug
-"================================================
+"=============================================================================
 " Installing vim-plug:
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -158,7 +159,7 @@ let g:vimwiki_list = [{'path': '~/Documents/VimWiki',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Status line
-"================================================
+"=============================================================================
 "set statusline=
 " Run <:so $VIMRUNTIME/syntax/hitest.vim> to view available colors to 
 " enter into next line
