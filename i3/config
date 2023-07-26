@@ -1,22 +1,10 @@
-# This file is a modified version based on default i3-config-wizard config
-# source is available here:
-# https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/master/.config/i3/config
-# Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
-# https://endeavouros.com
-#
-# iconic font icon search: https://fontawesome.com/v4.7/cheatsheet/
-#
-# --> to update this run the following command (will backup existing setup file)
-# wget --backups=1 https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/main/.config/i3/config -P ~/.config/i3/
-#
-# Endeavouros-i3 config file
-# Source for complete framework of our i3 config and theming here: https://github.com/endeavouros-team/endeavouros-i3wm-setup
-# EndeavourOS wiki holds some Information also: https://discovery.endeavouros.com/window-tiling-managers/i3-wm/
-# Please see http://i3wm.org/docs/userguide.html for the official i3 reference!
+#================================================
+# i3config
+# http://i3wm.org/docs/userguide.html
+#================================================
 
-#######################
-# config starts here: #
-#######################
+# General settings  
+#================================================
 
 # Set the dpi to 267 for the high resolution display of the laptop. Comment out for external displays.
 exec "xrandr --dpi 267"
@@ -27,22 +15,20 @@ exec "xrandr --dpi 267"
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango: FiraCode Nerd Font Regular 10
 
-# set the mod key to the winkey, sup to alt:
-set $mod Mod4
-set $sup Mod1
+# set the mod key to alt (Mod1), sup to Super (Mod4):
+set $mod Mod1
+set $sup Mod4
 
-#####################
 # workspace layout: #
-#####################
+#================================================
 
 # default i3 tiling mode:
 workspace_layout default
 #workspace_layout stacking
 #workspace_layout tabbed
 
-##############################
 # extra options for windows: #
-##############################
+#================================================
 
 #border indicator on windows:
 new_window pixel 1
@@ -84,16 +70,15 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 
 
 
-######################################
 # keybindings for different actions: #
-######################################
+#================================================
 
 # start a terminal
 #bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Return exec kitty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # exit-menu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
@@ -182,9 +167,6 @@ bindsym $mod+e layout toggle split
 # use meta keys without showing osc
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-# use meta keys showing osc using dunst
-#bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
-#bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
 # gradular volume control
 bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
@@ -192,8 +174,6 @@ bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill 
 
 # mute
 bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
-# use meta keys showing osc using dunst
-#bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
 
 # mic mute toggle
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
@@ -213,12 +193,8 @@ bindsym $mod+r exec kitty -e ranger
 bindsym $mod+m exec kitty -e btm
 bindsym Print exec scrot ~/Pictures/Screenshots/%Y%m%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
-# Power Profiles menu switcher (rofi)
-bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
-
-##########################################
 # configuration for workspace behaviour: #
-##########################################
+#================================================
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -256,9 +232,8 @@ set $ws10 "10"
 #for_window [class=Thunderbird] focus
 #for_window [class=TelegramDesktop] focus
 
-##############
 # compositor #
-##############
+#================================================
 
 # transparency
 # uncomment one of them to be used
@@ -285,9 +260,8 @@ set $ws10 "10"
 # for custom config:
 #exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
-#############################################
 # autostart applications/services on login: #
-#############################################
+#================================================
 
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -358,9 +332,9 @@ exec --no-startup-id sleep 2 && kitty
 #exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
 #exec_always --no-startup-id solaar config 2 fn-swap off
 
-###############
 # system tray #
-###############
+#================================================
+
 # if you do not use dex: exec --no-startup-id dex --autostart --environment i3
 # you need to have tray apps started manually one by one:
 
@@ -373,9 +347,8 @@ exec --no-startup-id sleep 2 && kitty
 # clipman-applet
 #exec --no-startup-id xfce4-clipman
 
-##################
 # floating rules #
-##################
+#================================================
 
 # set floating (nontiling) for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
@@ -402,18 +375,19 @@ smart_borders on
 # set position of floating window
 #for_window [class=".*"] move position center
 
-######################################
 # color settings for bar and windows #
-######################################
+#================================================
 
 # Define colors variables:
 set $bg0h			#1d2021
 set $bg0			#282828
 set $bg1			#3c3836
 set $bg2			#504945
+set $bg3			#665c54
 set $fg0			#fbf1c7
 set $fg1			#ebdbb2
 set $fg2			#d5c4a1
+set $fg3			#bdae93
 set $purpledk		#b16286
 set $purplelt		#d3869b
 set $bluedk			#458588
@@ -448,17 +422,15 @@ client.unfocused	    $bg2		$bg0		$fg1		$bg1		$bg2
 client.focused_inactive	$bluedk		$bg0		$fg1		$bg1		$bluelt
 client.urgent		    $orangelt	$bg0		$fg1		$bg1		$orangelt
 
-###########
 # Polybar #
-###########
+#================================================
 
 # Start polybar 
 # Need to setup launch.sh, and remove i3Blocks by deleting bar {...}
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-#####################################
 # Application menu handled by rofi: #
-#####################################
+#================================================
 
 ## rofi bindings fancy application menu ($mod+d)
 
@@ -469,6 +441,9 @@ bindsym $mod+d exec rofi -modi drun -show drun \
 
 bindsym $sup+Tab exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
+
+# Power Profiles menu switcher (rofi)
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 
