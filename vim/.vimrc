@@ -1,5 +1,7 @@
-" chrisp.vimrc
-" 
+"================================================
+" .vimrc
+"================================================
+ 
 " General settings
 "================================================
 set nocompatible
@@ -62,8 +64,8 @@ nnoremap <leader>v :source ~/.vimrc<CR>
 " Quick save
 nnoremap <leader>w :w<CR>
 " Toggle dark/light mode
-nnoremap <leader>l :set background=light<CR>
-nnoremap <leader>d :set background=dark<CR>
+nnoremap <leader>l :set background=light<CR>:colorscheme paper<CR>
+nnoremap <leader>d :set background=dark<CR>:colorscheme gruvbox<CR>
 "nnoremap <leader>f :FZF<CR>
 " Vertical split
 nnoremap <leader>s <C-w>v<C-w>l
@@ -98,6 +100,7 @@ call plug#begin('~/.vim/autoload')
 
 Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
+Plug 'yorickpeterse/vim-paper'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -137,7 +140,7 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'colorscheme': 'gruvbox',
       \ }
 
 " Gruvbox settings
@@ -145,7 +148,6 @@ let g:lightline = {
 set termguicolors
 set background=dark
 let g:gruvbox_contrast_dark = 'light'
-let g:gruvbox_contrast_light = 'hard'
 colorscheme gruvbox
 
 "VimWiki settings.
