@@ -37,7 +37,7 @@ export MANPAGER="vim -M +MANPAGER -"
 # Cool Colors
 #export PS1="\[$(tput setaf 8)\][\D{%m/%d}]\[$(tput setaf 5)\]cp\[$(tput setaf 13)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 12)\]\w \[$(tput setaf 10)\]\n->\[$(tput sgr0)\] "
 # Minimal
-export PS1="\[$(tput setaf 5)\]\w \[$(tput setaf 10)\]>\[$(tput sgr0)\] "
+export PS1="\[$(tput setaf 5)\]\w \[$(tput setaf 10)\]->\[$(tput sgr0)\] "
 #
 # Clrs:Dk Lt
 # Bkg:  0  8
@@ -82,8 +82,8 @@ alias rm='rm -i'
 # Faster navigation to config files
 #------------------------------------------------
 alias cdconfig='cd $HOME/config-repo/ && ll'
-alias vimrc='vim $HOME/config-repo/vim/.vimrc'
-alias bashrc='vim $HOME/config-repo/bash/.bashrc'
+alias cfv='vim $HOME/config-repo/vim/.vimrc'
+alias cfb='vim $HOME/config-repo/bash/.bashrc'
 
 # Shutdown
 #------------------------------------------------
@@ -92,7 +92,7 @@ alias restart='shutdown -r now'
 # Grep
 #------------------------------------------------
 alias grep='grep --color=auto'
-alias fontgrep='fc-list | grep -i --color=auto'
+alias grepfont='fc-list | grep -i --color=auto'
 
 # Pacman
 #------------------------------------------------
@@ -101,7 +101,7 @@ alias pacsearch='pacman -Ss'
 
 # yt download
 #------------------------------------------------
-alias yta-best='yt-dlp --extract-audio --audio-format best'
+alias yta='yt-dlp --extract-audio --audio-format best'
 alias yta-mp3='yt-dlp --extract-audio --audio-format mp3'
 alias ytv-best='yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 '
 
@@ -111,7 +111,11 @@ alias fetch='clear && neofetch'
 
 # Git
 #------------------------------------------------
-alias gstat='git status'
-alias gdiff='git diff origin/main'			#Diff staged changes
-alias gcommit='git commit -m'
-alias gpush='git push -u origin main'
+alias gs='git status -sb'
+alias ga='git add'
+alias gg='!git rev-list --all | xargs git grep -F'	# Search commits
+alias gl='git log --oneline'
+alias gd='git diff origin/main'			#Diff staged changes
+alias gvd='git difftool -t vimdiff -y'
+alias gc='git commit -m'
+alias gp='git push -u origin main'
