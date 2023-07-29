@@ -1,4 +1,4 @@
-set font "FiraCode Nerd Font 20"
+set font "FiraCode Nerd Font 10"
 
 set completion-group-bg         "#282828"
 set completion-group-fg         "#ebdbb2"
