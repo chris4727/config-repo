@@ -121,8 +121,7 @@ autocmd FileType md inoremap ;c <Esc>I-<Space>[<Space>]<Space><Esc>A
 autocmd FileType md nnoremap ;x 0t]rx<Esc>$ 
 autocmd FileType md inoremap ;x <Esc>0t]rx<Esc>A
 " Insert YAML frontmatter
-autocmd FileType md nnoremap ;y ggO---<CR>title: "<++>"<CR>author: "Chris
-Pyke"<CR>---<CR><CR># <++><Esc>gg
+autocmd FileType md nnoremap ;y ggO---<CR>title:<Space>"<++>"<CR>author:<Space>"Chris<Space>Pyke"<CR>---<CR><CR>#<Space><++><Esc>gg
 " TODO Add date using :pu=strftime('%Y-%m-%d')
 
 " LaTeX
