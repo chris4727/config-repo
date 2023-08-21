@@ -44,10 +44,10 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.img,.xlsx
 
 " Spellcheck
 "========================================
+set spelllang=en_us "Add new iso codes comma separated.
 set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
-"set spelllang=eng_us "Add new iso codes comma separated.
 
 " Search
 "========================================
@@ -62,7 +62,7 @@ set hlsearch
 let mapleader=" "
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
-nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <F5> :source ~/.vimrc<CR>
 " Quick save
 nnoremap <leader>w :w<CR>
 " Toggle dark/light mode
@@ -94,8 +94,9 @@ nnoremap <C-right> <C-w><
 
 " Unicode 
 "------------------------------------------------
-inoremap \mu μ
-inoremap \ugmc μg/m³
+" TODO Figure out why these abbreviations aren't working
+"ab \mu μ
+"ab \ugmc μg/m³
 
 " Space-Tab to find and replace <++> in insert
 "------------------------------------------------
@@ -103,11 +104,33 @@ inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 map <Space><Tab> <Esc>/<++><Enter>"_c4l
 
+" Markdown
+"------------------------------------------------
+" Insert link
+autocmd FileType md inoremap ;k [](<++>)<Space><++><Esc>11hi
+" Bold
+autocmd FileType md nnoremap ;b  bi**<Esc>ea**<Space>
+autocmd FileType md inoremap ;b  <Esc>bi**<Esc>ea**<Space>i
+" Italic
+autocmd FileType md nnoremap ;i  bi*<Esc>ea*<Space>
+autocmd FileType md inoremap ;i  <Esc>bi*<Esc>ea*<Space>i
+" Create new checkbox
+autocmd FileType md nnoremap ;c I-<Space>[<Space>]<Space><Esc>$ 
+autocmd FileType md inoremap ;c <Esc>I-<Space>[<Space>]<Space><Esc>A
+" Check existing checkbox
+autocmd FileType md nnoremap ;x 0t]rx<Esc>$ 
+autocmd FileType md inoremap ;x <Esc>0t]rx<Esc>A
+" Insert YAML frontmatter
+autocmd FileType md nnoremap ;y ggO---<CR>title: "<++>"<CR>author: "Chris
+Pyke"<CR>---<CR><CR># <++><Esc>gg
+" TODO Add date using :pu=strftime('%Y-%m-%d')
+
 " LaTeX
 "------------------------------------------------
-autocmd FileType tex inoremap ;em \textit{}<++><Esc>?\\{<Enter>a
-autocmd FileType tex inoremap ;li \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space> 
-autocmd FileType tex inoremap ;it <Enter>\item<Space>
+autocmd FileType tex inoremap <leader>i \textit{}<++><Esc>?\\{<CR>a
+autocmd FileType tex inoremap <leader>b.
+			\begin{itemize}<CR><CR>\end{itemize}<CR><CR><++><Esc>3kA\item<Space> 
+autocmd FileType tex inoremap <leader>. <CR>\item<Space>
 
 
 " Vim-plug
@@ -125,6 +148,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
+Plug 'airblade/vim-gitgutter'
 "Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -145,8 +169,9 @@ call plug#end()
 "F3 Nerdtree: Toggle nerdtree with F3
 nnoremap <F3> :NERDTreeToggle<cr>
 
-"F5 Compile LaTeX: Use vimtex to compile the TeX document. Still needs work.
-nnoremap <F5> :VimtexCompile<cr>
+"F4 Compile LaTeX: Use vimtex to compile the TeX document
+" TODO Get vim compiling working. Setup without vimtex?
+"nnoremap <F4> :VimtexCompile<cr>
 
 "F11 Activate reading mode with F11
 nnoremap <F11> :Goyo<cr>
