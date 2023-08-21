@@ -108,6 +108,7 @@ map <Space><Tab> <Esc>/<++><Enter>"_c4l
 "------------------------------------------------
 " Insert link
 autocmd FileType md inoremap ;k [](<++>)<Space><++><Esc>11hi
+autocmd FileType md nnoremap ;k i[](<++>)<Space><++><Esc>11hi
 " Bold
 autocmd FileType md nnoremap ;b  bi**<Esc>ea**<Space>
 autocmd FileType md inoremap ;b  <Esc>bi**<Esc>ea**<Space>i
