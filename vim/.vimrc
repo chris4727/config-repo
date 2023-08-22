@@ -141,7 +141,8 @@ autocmd FileType tex inoremap <leader>. <CR>\item<Space>
 call plug#begin('~/.vim/autoload')
 
 Plug 'ap/vim-css-color'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'yorickpeterse/vim-paper'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
@@ -187,12 +188,19 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 "      \ 'colorscheme': 'Tomorrow_Night',
 "      \ }
 
-" Gruvbox settings
+" Colorscheme settings
 "------------------------------------------------
 set termguicolors
 set background=dark
+" Gruvbox
 let g:gruvbox_contrast_dark = 'light'
 colorscheme gruvbox
+
+" Onedark
+"let g:onedark_color_overrides = {                                                  
+"\ "background": {"gui": "#1e1e1e", "cterm": "235", "cterm16": "0" },               
+"\}                                                                                 
+"colorscheme onedark   
 
 "VimWiki settings.
 "------------------------------------------------
