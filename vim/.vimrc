@@ -140,22 +140,22 @@ autocmd FileType markdown nnoremap ;c  bi`<Esc>ea`<Esc>
 autocmd FileType markdown inoremap ;cb  ```<CR><++><CR>```<CR><++><Esc>3kA
 autocmd FileType markdown nnoremap ;cb  O```<Esc>}i```<Esc>{j$
 " [it]emize 
-autocmd FileType markdown inoremap ;it <Esc>I-<Space><Esc>A
-autocmd FileType markdown nnoremap ;it I-<Space><Esc>$ 
+autocmd FileType markdown inoremap ;ul <Esc>I-<Space><Esc>A
+autocmd FileType markdown nnoremap ;ul I-<Space><Esc>$ 
 " [en]umerate 
-autocmd FileType markdown inoremap ;en <Esc>I1.<Space><Esc>A
-autocmd FileType markdown nnoremap ;en I1.<Space><Esc>$ 
+autocmd FileType markdown inoremap ;ol <Esc>I1.<Space><Esc>A
+autocmd FileType markdown nnoremap ;ol I1.<Space><Esc>$ 
 " Create new checkbo[x]
 autocmd FileType markdown inoremap ;x <Esc>I-<Space>[<Space>]<Space>
 autocmd FileType markdown nnoremap ;x I-<Space>[<Space>]<Space><Esc>$ 
 " Check existing checkbo[X]
 autocmd FileType markdown inoremap ;X <Esc>0t]rx<Esc>A
 autocmd FileType markdown nnoremap ;X 0t]rx<Esc>$ 
-" Insert lin[k]
+" Insert lin[k]. [description](url)
 autocmd FileType markdown inoremap ;k [](<++>)<++><Esc>10hi
 " Insert [w]iki link
 autocmd FileType markdown inoremap ;w [[]]<++><Esc>5hi
-" Insert [p]hotograph
+" Insert [p]hotograph. ![description](path)
 autocmd FileType markdown inoremap ;p ![](<++>)<++><Esc>10hi
 " Insert [f]ootnote. Go back with 2<C-o>. Search footnotes /\[^.*]
 autocmd FileType markdown inoremap ;f [^]<Esc>Go[^<++>]:<Space><++><Esc>``i
@@ -168,6 +168,18 @@ autocmd FileType markdown nnoremap ;y ggO---<CR>title:<Space>"<++>"<CR>author:<S
 "------------------------------------------------
 " [m]acro
 autocmd FileType tex inoremap ;m \{<++>}<++><Esc>9hi
+" [h]eading 1
+autocmd FileType tex inoremap ;h <Esc>I\section{<Esc>A}
+"autocmd FileType tex nnoremap ;h 
+" [h]eading 2
+autocmd FileType tex inoremap ;h2 <Esc>I\subsection{<Esc>A}
+"autocmd FileType tex nnoremap ;h2 
+" [h]eading 3
+autocmd FileType tex inoremap ;h3 <Esc>I\subsubsection{<Esc>A}
+"autocmd FileType tex nnoremap ;h3 
+" Increase [H]eader level
+autocmd FileType tex inoremap ;H <Esc>0asub<Esc>A
+autocmd FileType tex nnoremap ;H 0asub<Esc>$ 
 " [i]talic
 autocmd FileType tex inoremap ;i \textit{}<++><Esc>4hi
 autocmd FileType tex nnoremap ;i  bi\textit{<Esc>ea}
@@ -185,13 +197,21 @@ autocmd FileType tex inoremap ;mm $$<++><Esc>4hi
 autocmd FileType tex inoremap ;dm \[<Space><Space>\]<++><Esc>6hi
 " [c]ite
 autocmd FileType tex inoremap ;c \cite{}<++><Esc>4hi
+" [f]ootnote
+autocmd FileType tex inoremap ;f \footnote{}<++><Esc>4hi
 
-" [it]emize environmet
-autocmd FileType tex inoremap ;it \begin{itemize}<CR><CR>\end{itemize}<CR><++><Esc>2kA\item
-" [e]numerate environmnet
-autocmd FileType tex inoremap ;en \begin{enumerate}<CR><CR>\end{enumerate}<CR><++><Esc>2kA\item<Space> 
+" [en]vironment
+autocmd FileType tex inoremap ;en \begin{}<CR><++><CR>\end{<++>}<CR><++><Esc>3k$i
+" [u]nordered [l]ist
+autocmd FileType tex inoremap ;ul \begin{itemize}<CR><CR>\end{itemize}<CR><++><Esc>2kA\item
+" [n]umbered [l]ist
+autocmd FileType tex inoremap ;nl \begin{enumerate}<CR><CR>\end{enumerate}<CR><++><Esc>2kA\item<Space> 
 " Add [i]tem
-autocmd FileType tex inoremap ;ii <CR>\item
+autocmd FileType tex inoremap ;it <CR>\item
+" Insert [p]hotograph {path}
+autocmd FileType tex inoremap ;p \includegraphics{}<++><Esc>4hi
+" Insert lin[k]. {url}{description}
+autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 
 
 " Vim-plug
