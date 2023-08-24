@@ -127,10 +127,16 @@ autocmd FileType md nnoremap ;y ggO---<CR>title:<Space>"<++>"<CR>author:<Space>"
 
 " LaTeX
 "------------------------------------------------
-autocmd FileType tex inoremap <leader>i \textit{}<++><Esc>?\\{<CR>a
-autocmd FileType tex inoremap <leader>b.
-			\begin{itemize}<CR><CR>\end{itemize}<CR><CR><++><Esc>3kA\item<Space> 
-autocmd FileType tex inoremap <leader>. <CR>\item<Space>
+" [f]ormat [it]alic
+autocmd FileType tex inoremap ;fit \textit{}<++><Esc>4hi
+" [f]ormat [b]old[f]ace
+autocmd FileType tex inoremap ;fbf \textit{}<++><Esc>4hi
+" Add [e]nvironment for [it]emize
+autocmd FileType tex inoremap ;eit \begin{itemize}<CR><CR>\end{itemize}<CR><++><Esc>2kA\item<Space> 
+" Add [e]nvironment for [en]umerate
+autocmd FileType tex inoremap ;een \begin{enumerate}<CR><CR>\end{enumerate}<CR><++><Esc>2kA\item<Space> 
+" Add [it]e[m]
+autocmd FileType tex inoremap ;itm \item<Space>
 
 
 " Vim-plug
