@@ -109,6 +109,9 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
+# Focus follows mouse off for touchpad
+focus_follows_mouse no
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
