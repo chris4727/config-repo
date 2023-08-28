@@ -74,15 +74,11 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 # keybindings for different actions: #
 #================================================
 
-# start a terminal
-#bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Return exec kitty
-
 # kill focused window
 bindsym $mod+q kill
 
 # exit-menu
-bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
+#bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 
 # Lock the system
 # lock with a picture:
@@ -145,12 +141,12 @@ bindsym $mod+ctrl+l resize shrink width 10 px or 10ppt
 bindsym $mod+ctrl+k resize grow height 10 px or 10ppt
 bindsym $mod+ctrl+j resize shrink height 10 px or 10ppt
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# [m]aximize the focused container
+bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
+#bindsym $mod+g layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -165,7 +161,8 @@ bindsym $mod+e layout toggle split
 # open new empty workspace
 #bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
-# Multimedia Keys
+# Audio settings
+#================================================
 
 # volume
 # use meta keys without showing osc
@@ -189,15 +186,20 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Redirect sound to headphones
-bindsym $mod+p exec /usr/local/bin/switch-audio-port
+#bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
-## App shortcuts
+# App launchers
+#================================================
+# Terminal
+bindsym $mod+Return exec kitty
+# Web [b]rowser
 bindsym $mod+b exec /usr/bin/firefox
-bindsym $mod+r exec kitty -e ranger
-bindsym $mod+m exec kitty -e btm
+# [f]ile manager
+bindsym $mod+f exec kitty -e lf
+# Screenshot with PrtScn
 bindsym Print exec scrot ~/Pictures/Screenshots/%Y%m%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
-# configuration for workspace behaviour: #
+# Workspaces
 #================================================
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -264,7 +266,7 @@ set $ws10 "10"
 # for custom config:
 #exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
-# autostart applications/services on login: #
+## Autostart applications/services on login: #
 #================================================
 
 #get auth work with polkit-gnome
