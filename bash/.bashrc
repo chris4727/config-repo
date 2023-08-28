@@ -82,8 +82,10 @@ alias rm='rm -i'
 # Faster navigation to config files
 #------------------------------------------------
 alias cdconfig='cd $HOME/config-repo/ && ll'
-alias cfv='vim $HOME/config-repo/vim/.vimrc'
-alias cfb='vim $HOME/config-repo/bash/.bashrc'
+alias cfvim='vim $HOME/config-repo/vim/.vimrc'
+alias cfbash='vim $HOME/config-repo/bash/.bashrc'
+alias cfi3='vim $HOME/config-repo/i3/config'
+alias cfkitty='vim $HOME/config-repo/kitty/kitty.conf'
 
 # Shutdown
 #------------------------------------------------
