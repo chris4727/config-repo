@@ -64,7 +64,7 @@ let mapleader=" "
 
 " Find next TODO (case sensitive)
 "------------------------------------------------
-map <leader>t <Esc>/TODO<Enter>
+nnoremap <leader>t <Esc>/TODO<Enter>
 
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
