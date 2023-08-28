@@ -59,18 +59,18 @@ set hlsearch
 
 " Key remaps
 "========================================
+
 let mapleader=" "
+
+" Find next TODO (case sensitive)
+"------------------------------------------------
+map <leader>t <Esc>/TODO<Enter>
+
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
-nnoremap <F5> :source ~/.vimrc<CR>
+nnoremap <leader>s :source ~/.vimrc<CR>
 " Quick save
 nnoremap <leader>w :w<CR>
-" Toggle dark/light mode
-nnoremap <leader>l :set background=light<CR>:colorscheme paper<CR>
-nnoremap <leader>d :set background=dark<CR>:colorscheme gruvbox<CR>
-" Vertical split
-nnoremap <leader>s <C-w>v<C-w>l
-
 " Set navigation to center cursor
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
@@ -80,6 +80,18 @@ nnoremap <Up> kzz
 nnoremap <Down> jzz
 nnoremap <Left> h
 nnoremap <Right> l
+
+
+" Toggle dark/light mode
+"------------------------------------------------
+"nnoremap <leader>l :set background=light<CR>:colorscheme paper<CR>
+"nnoremap <leader>d :set background=dark<CR>:colorscheme gruvbox<CR>
+
+" Split screen
+"------------------------------------------------
+
+" [V]ertical split
+nnoremap <leader>v <C-w>v<C-w>l
 
 " Shortcuts for split navitation:
 set splitbelow splitright
@@ -91,8 +103,6 @@ nnoremap <C-up> <C-w>+
 nnoremap <C-down> <C-w>-
 nnoremap <C-left> <C-w>>
 nnoremap <C-right> <C-w><
-
-
 
 " Snippets
 "===============================================
@@ -110,8 +120,35 @@ inoremap ;{ {}<++><Esc>4hi
 inoremap ;[ []<++><Esc>4hi
 inoremap ;" “”<++><Esc>4hi
 inoremap ;' ‘’<++><Esc>4hi
+inoremap ;-- –
+inoremap ;--- —
+inoremap ;!! ¡
+inoremap ;?? ¿
+
+
+" Accents and other characters
+"------------------------------------------------
+" List of unicode characters can be found here:
+" https://en.wikipedia.org/wiki/List_of_Unicode_characters
+inoremap ;'a á
+inoremap ;'e é
+inoremap ;'o ó
+inoremap ;"i ï
+inoremap ;~n ñ
+
+" Math
+"------------------------------------------------
+inoremap ;x ×
+inoremap ;+- ±
+inoremap ;^3 ³
+inoremap ;_8 ₈
 inoremap ;mu μ
 inoremap ;ugmc μg/m³
+inoremap ;^0 °
+inoremap ;~~ ≈
+inoremap ;<= ≤
+inoremap ;>= ≥
+inoremap ;/= ≠
 
 " Markdown
 "------------------------------------------------
