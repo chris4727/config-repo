@@ -251,7 +251,7 @@ autocmd FileType tex inoremap ;p \includegraphics{}<++><Esc>4hi
 autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 
 
-" Vim-plug
+" Plugins: Vim-plug
 "========================================
 " Installing vim-plug:
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -259,8 +259,7 @@ autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 call plug#begin('~/.vim/autoload')
 
 Plug 'ap/vim-css-color'
-"Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 Plug 'yorickpeterse/vim-paper'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'

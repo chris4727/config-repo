@@ -96,7 +96,7 @@ alias restart='shutdown -r now'
 # Grep
 #------------------------------------------------
 alias grep='grep --color=auto'
-alias grepfont='fc-list | grep -i --color=auto'
+alias fontgrep='fc-list | grep -i --color=auto'
 
 # Pacman
 #------------------------------------------------
