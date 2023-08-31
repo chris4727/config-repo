@@ -15,7 +15,7 @@ set showmode
 set showcmd
 set nobackup
 set nocursorline
-set history=1000
+set history=5000
 set guifont=Fira\ Code\ Nerdfont:12
 
 " Layout
@@ -26,17 +26,18 @@ set autoindent
 
 " Line wrapping
 "========================================
-" To wrap line at end of wrap point, use `gqq'
-"set nowrap
-"set textwidth=72
-"Set the character number where colorcolumn appears
+" Set the character number where colorcolumn appears
 set colorcolumn=80
-"Change GUI colorcolumn to black.
+" Change GUI colorcolumn to black.
 highlight ColorColumn guibg=Black
-"Changes terminal colorcolumn to black.
+" Changes terminal colorcolumn to black.
 highlight ColorColumn ctermbg=0
+" Wrap paragraph
+"	To wrap line at end of wrap point, use `gqq'
+"	To wrap paragraph at end of wrap point, use `gq}'
+nnoremap <C-w> gq}
 
-" Enable autocomplete:
+" Autocomplete:
 "========================================
 set wildmenu
 set wildmode=list:longest
@@ -56,45 +57,54 @@ set ignorecase
 set smartcase
 set showmatch
 set hlsearch
+" Find next TODO (case sensitive)
+nnoremap <leader>t <Esc>/TODO<Enter>
 
 " Key remaps
 "========================================
-
 let mapleader=" "
-
-" Find next TODO (case sensitive)
-"------------------------------------------------
-nnoremap <leader>t <Esc>/TODO<Enter>
-
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
+" Source vimrc
 nnoremap <leader>s :source ~/.vimrc<CR>
 " Quick save
-nnoremap <leader>w :w<CR>
+nnoremap <C-s> :w<CR>
+
+" Navigation
+"------------------------------------------------
 " Set navigation to center cursor
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap j jzz
 nnoremap k kzz
-nnoremap <Up> kzz
-nnoremap <Down> jzz
-nnoremap <Left> h
-nnoremap <Right> l
+nnoremap <Up> <Up>zz
+nnoremap <Down> <Down>zz
 
-
-" Toggle dark/light mode
+" Colemak-DH remaps
 "------------------------------------------------
-"nnoremap <leader>l :set background=light<CR>:colorscheme paper<CR>
-"nnoremap <leader>d :set background=dark<CR>:colorscheme gruvbox<CR>
+"nnoremap j nzz
+"nnoremap k ezz
+"nnoremap h m
+"nnoremap l i
+"" Remap insert to 'h' as in 'insert [h]ere'
+"nnoremap i h
+"nnoremap I H
+"" Remap next search result to 'l'
+"nnoremap n l
+"nnoremap N L
+"" Remap other nav keys to avoid conflicts
+"nnoremap e k
+"nnoremap E K
+"nnoremap m j
+"nnoremap M J
 
-" Split screen
+" Split
 "------------------------------------------------
-
 " [V]ertical split
 nnoremap <leader>v <C-w>v<C-w>l
-
-" Shortcuts for split navitation:
 set splitbelow splitright
+" Shortcuts for split navitation:
+" TODO Look into fixing this for colemak-dh
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -124,7 +134,6 @@ inoremap ;-- –
 inoremap ;--- —
 inoremap ;!! ¡
 inoremap ;?? ¿
-
 
 " Accents and other characters
 "------------------------------------------------
@@ -260,20 +269,15 @@ call plug#begin('~/.vim/autoload')
 
 Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
-Plug 'yorickpeterse/vim-paper'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 Plug 'airblade/vim-gitgutter'
-"Plug 'itchyny/lightline.vim'
 
 call plug#end()
-
-" Plugins under consideration
-"Plug 'junegunn/fzf.vim'
-"Plug 'dmerejkowsky/vim-ale.vim'
 
 "Install new plugins using
 ":source %
@@ -284,8 +288,8 @@ call plug#end()
 
 "Plugin specific settings:
 "------------------------------------------------
-"F3 Nerdtree: Toggle nerdtree with F3
-nnoremap <F3> :NERDTreeToggle<cr>
+"Nerdtree: Toggle nerdtree
+nnoremap <leader>f :NERDTreeToggle<cr>
 
 "F4 Compile LaTeX: Use vimtex to compile the TeX document
 " TODO Get vim compiling working. Setup without vimtex?
@@ -297,34 +301,22 @@ nnoremap <F11> :Goyo<cr>
 "F12 Activate reading with focus mode with F12
 nmap <F12> :Goyo <bar> Limelight!!<CR>"
 
-" Lightline settings
-"------------------------------------------------
-"set laststatus=2
-"set noshowmode
-"let g:lightline = {
-"      \ 'colorscheme': 'Tomorrow_Night',
-"      \ }
-
-" Colorscheme settings
-"------------------------------------------------
-set termguicolors
-set background=dark
-" Gruvbox
-let g:gruvbox_contrast_dark = 'light'
-colorscheme gruvbox
-
-" Onedark
-"let g:onedark_color_overrides = {                                                  
-"\ "background": {"gui": "#1e1e1e", "cterm": "235", "cterm16": "0" },               
-"\}                                                                                 
-"colorscheme onedark   
-
 "VimWiki settings.
 "------------------------------------------------
 " Set VimWiki to use markdown syntax:
 " Specify path of any directories to use VimWiki
 let g:vimwiki_list = [{'path': '~/Documents/VimWiki',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" Colorscheme settings
+"------------------------------------------------
+set termguicolors
+let g:gruvbox_contrast_dark = 'light'
+set background=dark
+colorscheme gruvbox
+" Toggle dark/light mode
+nnoremap <leader>l :colorscheme catppuccin_latte<CR>:set background=light<CR>
+nnoremap <leader>d :set background=dark<CR>:colorscheme gruvbox<CR>
 
 " Status line
 "========================================
