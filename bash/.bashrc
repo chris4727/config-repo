@@ -14,6 +14,8 @@ export TERM="xterm-256color"
 set -o vi
 # Ignore case when Tab completing
 bind "set completion-ignore-case on"
+# Set default editor to Vim
+export EDITOR=vim
 
 # Bash history
 HISTSIZE=5000
@@ -110,6 +112,16 @@ alias fontgrep='fc-list | grep -i --color=auto'
 alias pacupdate='pacman -Syu'
 alias pacsearch='pacman -Ss'
 
+# Rip disks to file                                                             
+#------------------------------------------------                               
+# Rip audio CD to both flac and opus                                            
+alias ripmusic='abcde -o flac,opus -G -c ~/.config/abcde/abcde.conf'            
+# Rip audiobook CD to voice optimized, low bitrate opus                         
+alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcde.conf.book'            
+# Rip DVD                                                                       
+#makeMKV plus handbrake.                                                        
+#https://github.com/automatic-ripping-machine/automatic-ripping-machine  
+
 # yt download
 #------------------------------------------------
 alias yta='yt-dlp --extract-audio --audio-format best'
@@ -118,7 +130,7 @@ alias ytv-best='yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+besta
 
 # Fetch
 #------------------------------------------------
-alias fetch='clear && neofetch'
+alias neofetch='clear && neofetch'
 
 # Git
 #------------------------------------------------
