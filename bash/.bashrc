@@ -112,21 +112,27 @@ alias fontgrep='fc-list | grep -i --color=auto'
 alias pacupdate='pacman -Syu'
 alias pacsearch='pacman -Ss'
 
-# Rip disks to file                                                             
-#------------------------------------------------                               
-# Rip audio CD to both flac and opus                                            
-alias ripmusic='abcde -o flac,opus -G -c ~/.config/abcde/abcde.conf'            
-# Rip audiobook CD to voice optimized, low bitrate opus                         
-alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcde.conf.book'            
-# Rip DVD                                                                       
-#makeMKV plus handbrake.                                                        
-#https://github.com/automatic-ripping-machine/automatic-ripping-machine  
+# Rip disks to file
+#------------------------------------------------
+# Rip audio CD to both flac and opus
+alias ripmusic='abcde -o flac,opus -G -c ~/.config/abcde/abcde.conf'
+# Rip audiobook CD to voice optimized, low bitrate opus
+alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcdebook.conf'
+# Rip DVD
+#makeMKV plus handbrake. 
+#https://github.com/automatic-ripping-machine/automatic-ripping-machine
 
 # yt download
 #------------------------------------------------
-alias yta='yt-dlp --extract-audio --audio-format best'
-alias yta-mp3='yt-dlp --extract-audio --audio-format mp3'
-alias ytv-best='yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 '
+#List available codecs
+alias ytlist='yt-dlp -F'
+# Extract audio, opus best quality
+alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P $HOME/Music'
+# Look into possible codecs. One for small and efficient, one for best. 
+# Downsample highest resolution to 1080p. 
+# Look at '--remux-video' '--sponsorblock-remove'
+# Use AV1 if available.
+#alias ytv-best='yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 '
 
 # Fetch
 #------------------------------------------------

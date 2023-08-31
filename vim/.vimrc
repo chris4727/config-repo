@@ -251,7 +251,7 @@ autocmd FileType tex inoremap ;p \includegraphics{}<++><Esc>4hi
 autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 
 
-" Vim-plug
+" Plugins: Vim-plug
 "========================================
 " Installing vim-plug:
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -305,12 +305,19 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 "      \ 'colorscheme': 'Tomorrow_Night',
 "      \ }
 
-" Gruvbox settings
+" Colorscheme settings
 "------------------------------------------------
 set termguicolors
 set background=dark
+" Gruvbox
 let g:gruvbox_contrast_dark = 'light'
 colorscheme gruvbox
+
+" Onedark
+"let g:onedark_color_overrides = {                                                  
+"\ "background": {"gui": "#1e1e1e", "cterm": "235", "cterm16": "0" },               
+"\}                                                                                 
+"colorscheme onedark   
 
 "VimWiki settings.
 "------------------------------------------------
