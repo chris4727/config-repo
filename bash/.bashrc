@@ -77,6 +77,9 @@ alias calc='qalc'			# Calculator
 alias play='mpv'			# Media player
 alias sys='btm'				# System monitor
 alias file='lf'				# File manager
+#alias music='ncmpcpp'		# Music player
+#alias mail='neomutt'		# Email
+#alias rss='newsboat'		# RSS reader
 
 # Change default ls behavior
 #------------------------------------------------
