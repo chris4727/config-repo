@@ -32,24 +32,23 @@ HISTCONTROL=ignorespace:erasedups
 # Move around comments with ]" and ["
 export MANPAGER="vim -M +MANPAGER -"
 
-# Prompt
+# Prompt: Bash
 #================================================
-# Warm colors
-#export PS1="\[$(tput setaf 5)\][\D{%m/%d}]\[$(tput setaf 9)\]cp\[$(tput setaf 3)\]@\[$(tput setaf 11)\]\h \[$(tput setaf 7)\]\w \[$(tput setaf 10)\]\n$\[$(tput sgr0)\] "
-# Cool Colors
-#export PS1="\[$(tput setaf 8)\][\D{%m/%d}]\[$(tput setaf 5)\]cp\[$(tput setaf 13)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 12)\]\w \[$(tput setaf 10)\]\n->\[$(tput sgr0)\] "
-# Minimal
-export PS1="\[$(tput setaf 5)\]\w \[$(tput setaf 10)\]->\[$(tput sgr0)\] "
-#
-# Clrs:Dk Lt
-# Bkg:  0  8
-# Red:  1  9
-# Grn:  2 10
-# Ylw:  3 11
-# Blu:  4 12
-# Prp:  5 13
-# Cyn:  6 14
-# Fgd:  7 15
+#export PS1="\[$(tput setaf 5)\]\w \[$(tput setaf 10)\]->\[$(tput sgr0)\] "
+export PS1="\[$(tput setaf 5)\]\u\[$(tput setaf 10)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 5)\]\w \[$(tput setaf 10)\]->\[$(tput sgr0)\] "
+# Variables:
+# Date: \D{%m/%d} | User: \u | Host: \h | Working directory: \w
+# Colors:
+#| Clr: | Dk | Lt |
+#|------|----|----|
+#| Bkg: |  0 |  8 |
+#| Red: |  1 |  9 |
+#| Grn: |  2 | 10 |
+#| Ylw: |  3 | 11 |
+#| Blu: |  4 | 12 |
+#| Prp: |  5 | 13 |
+#| Cyn: |  6 | 14 |
+#| Fgd: |  7 | 15 |
 
 # Shopt
 #================================================
@@ -66,11 +65,18 @@ shopt -s histappend # do not overwrite history
 # Package manager: Pacman
 #------------------------------------------------
 alias pacup='pacman -Syu'
-#alias pacls='TODO'
+alias pacls='pacman -Qs'
 alias pacss='pacman -Ss'
 alias pacinstall='pacman -S'
-#alias pacrm='TODO'
-#alias pacclean='TODO'
+alias pacrm='pacman -Rs'
+alias pacclean='pacman -Qdtq | pacman -Rs'
+
+# Launchers
+#------------------------------------------------
+alias calc='qalc'			# Calculator
+alias play='mpv'			# Media player
+alias sys='btm'				# System monitor
+alias file='lf'				# File manager
 
 # Change default ls behavior
 #------------------------------------------------
@@ -90,13 +96,17 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# Faster navigation to config files
+# Faster navigation to common config files
 #------------------------------------------------
 alias cdconfig='cd $HOME/config-repo/ && ll'
 alias cfvim='vim $HOME/config-repo/vim/.vimrc'
 alias cfbash='vim $HOME/config-repo/bash/.bashrc'
-alias cfi3='vim $HOME/config-repo/i3/config'
-alias cfkitty='vim $HOME/config-repo/kitty/kitty.conf'
+alias cfwm='vim $HOME/config-repo/i3/config'
+alias cfterm='vim $HOME/config-repo/kitty/kitty.conf'
+
+# Fetch
+#------------------------------------------------
+alias neofetch='clear && neofetch'
 
 # Shutdown
 #------------------------------------------------
@@ -107,13 +117,10 @@ alias restart='shutdown -r now'
 alias grep='grep --color=auto'
 alias fontgrep='fc-list | grep -i --color=auto'
 
-# Pacman
-#------------------------------------------------
-alias pacupdate='pacman -Syu'
-alias pacsearch='pacman -Ss'
-
 # Rip disks to file
 #------------------------------------------------
+# Rip audio CD to both flac and opus
+alias ripflac='abcde -o flac -G -c ~/.config/abcde/abcde.conf'
 # Rip audio CD to both flac and opus
 alias ripmusic='abcde -o flac,opus -G -c ~/.config/abcde/abcde.conf'
 # Rip audiobook CD to voice optimized, low bitrate opus
@@ -127,16 +134,12 @@ alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcdebook.conf'
 #List available codecs
 alias ytlist='yt-dlp -F'
 # Extract audio, opus best quality
-alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P $HOME/Music'
+alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P $HOME/Music/unsorted'
 # Look into possible codecs. One for small and efficient, one for best. 
 # Downsample highest resolution to 1080p. 
 # Look at '--remux-video' '--sponsorblock-remove'
 # Use AV1 if available.
 #alias ytv-best='yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 '
-
-# Fetch
-#------------------------------------------------
-alias neofetch='clear && neofetch'
 
 # Git
 #------------------------------------------------
