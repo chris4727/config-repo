@@ -63,6 +63,15 @@ shopt -s histappend # do not overwrite history
 # Find most common commands using: 
 #$ history | awk '{cmd[$2]++} END {for(elem in cmd) {print cmd[elem] " " elem}}' | sort -n -r | head -10
 
+# Package manager: Pacman
+#------------------------------------------------
+alias pacup='pacman -Syu'
+#alias pacls='TODO'
+alias pacss='pacman -Ss'
+alias pacinstall='pacman -S'
+#alias pacrm='TODO'
+#alias pacclean='TODO'
+
 # Change default ls behavior
 #------------------------------------------------
 alias ls='ls -lh --color=auto'
