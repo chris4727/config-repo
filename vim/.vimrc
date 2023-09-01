@@ -68,7 +68,7 @@ nnoremap <leader>r :set rnu!<CR>
 " Source vimrc
 nnoremap <leader>s :source ~/.vimrc<CR>
 " Quick save
-nnoremap <C-s> :w<CR>
+nnoremap <leader>w :w<CR>
 
 " Navigation
 "------------------------------------------------
@@ -117,11 +117,11 @@ nnoremap <C-right> <C-w><
 " Snippets
 "===============================================
 
-" Space-Tab to find and replace <++> in insert
+" Space-; to find and replace <++> in insert
 "------------------------------------------------
-inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-map <Space><Tab> <Esc>/<++><Enter>"_c4l
+inoremap <Space>; <Esc>/<++><Enter>"_c4l
+vnoremap <Space>; <Esc>/<++><Enter>"_c4l
+map <Space>; <Esc>/<++><Enter>"_c4l
 
 " General
 "------------------------------------------------
