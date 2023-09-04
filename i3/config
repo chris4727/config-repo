@@ -6,29 +6,25 @@
 # General settings  
 #================================================
 
-# Set the dpi to 267 for the high resolution display of the laptop. Comment out for external displays.
+# Set the dpi to 267 for the high resolution display of the laptop. 
+# Comment out for external displays.
 exec "xrandr --dpi 267"
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# Font for window titles. 
+# Will also be used by the bar unless a different font is used in the bar block
+# Text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango: FiraCode Nerd Font Regular 10
 
-# set the mod key to os (Mod4)
-set $mod Mod4
-# sup to Super (Mod1):
-set $sup Mod1
+# Mod4 = Gui key
+# Mod1 = Alt key
+# Swap to have alt as mod (for easier reach on regular keyboards)
+set $mod Mod1
+set $sup Mod4
 
-# workspace layout: #
-#================================================
-
-# default i3 tiling mode:
+# Default tiling mode:
 workspace_layout default
-#workspace_layout stacking
-#workspace_layout tabbed
 
-# extra options for windows: #
+# extra options for windows
 #================================================
 
 #border indicator on windows:
@@ -445,7 +441,7 @@ bindsym $mod+space exec rofi -modi drun -show drun \
 
 ## rofi bindings for window menu ($mod+t)
 
-bindsym $sup+Tab exec rofi -show window \
+bindsym $mod+Tab exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 # Power Profiles menu switcher (rofi)
