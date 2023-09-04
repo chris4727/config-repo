@@ -70,6 +70,18 @@ nnoremap <leader>s :source ~/.vimrc<CR>
 " Quick save
 nnoremap <leader>w :w<CR>
 
+" Clipboard
+"------------------------------------------------
+set paste
+"TODO Get this working. May need to install vim-gtk or gvim? Arch alternative?
+"" Yank selection into system clipboard (may need `+` instead of `*`)
+"vnoremap <C-c> "*y
+"" Yank into system clipboard (may need `+` instead of `*`)
+"inoremap <C-r><C-p>*
+"" See :help clipboard. 
+"" In this case you can :set clipboard=unnamed or :set clipboard=unnamedplus to
+"" make all yanking/deleting operations automatically copy to the system clipboard.
+
 " Navigation
 "------------------------------------------------
 " Set navigation to center cursor
