@@ -123,9 +123,7 @@ alias fontgrep='fc-list | grep -i --color=auto'
 # Rip disks to file
 #------------------------------------------------
 # Rip audio CD to both flac and opus
-alias ripflac='abcde -o flac -G -c ~/.config/abcde/abcde.conf'
-# Rip audio CD to both flac and opus
-alias ripmusic='abcde -o flac,opus -G -c ~/.config/abcde/abcde.conf'
+alias ripmusic='abcde -o flac -G -c ~/.config/abcde/abcde.conf'
 # Rip audiobook CD to voice optimized, low bitrate opus
 alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcdebook.conf'
 # Rip DVD
