@@ -73,14 +73,14 @@ nnoremap <leader>w :w<CR>
 " Clipboard
 "------------------------------------------------
 set paste
-"TODO Get this working. May need to install vim-gtk or gvim? Arch alternative?
-"" Yank selection into system clipboard (may need `+` instead of `*`)
-"vnoremap <C-c> "*y
-"" Yank into system clipboard (may need `+` instead of `*`)
-"inoremap <C-r><C-p>*
-"" See :help clipboard. 
-"" In this case you can :set clipboard=unnamed or :set clipboard=unnamedplus to
-"" make all yanking/deleting operations automatically copy to the system clipboard.
+" Requires gvim for + and * registers for clipboard access.
+" Yank selection into system clipboard (may need `+` instead of `*`)
+vnoremap <C-c> "+y
+" Yank into system clipboard (may need `+` instead of `*`)
+inoremap <C-v> <C-r>+
+" See :help clipboard. 
+" You can :set clipboard=unnamed or :set clipboard=unnamedplus to make all yanking/deleting operations automatically copy to the system clipboard.
+""set clipboard=unnamed
 
 " Navigation
 "------------------------------------------------
