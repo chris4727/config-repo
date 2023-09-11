@@ -287,7 +287,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 call plug#end()
 
