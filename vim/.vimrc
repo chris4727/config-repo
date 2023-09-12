@@ -73,14 +73,14 @@ nnoremap <leader>w :w<CR>
 " Clipboard
 "------------------------------------------------
 set paste
-"TODO Get this working. May need to install vim-gtk or gvim? Arch alternative?
-"" Yank selection into system clipboard (may need `+` instead of `*`)
-"vnoremap <C-c> "*y
-"" Yank into system clipboard (may need `+` instead of `*`)
-"inoremap <C-r><C-p>*
-"" See :help clipboard. 
-"" In this case you can :set clipboard=unnamed or :set clipboard=unnamedplus to
-"" make all yanking/deleting operations automatically copy to the system clipboard.
+" Requires gvim for + and * registers for clipboard access.
+" Yank selection into system clipboard (may need `+` instead of `*`)
+vnoremap <C-c> "+y
+" Yank into system clipboard (may need `+` instead of `*`)
+inoremap <C-v> <C-r>+
+" See :help clipboard. 
+" You can :set clipboard=unnamed or :set clipboard=unnamedplus to make all yanking/deleting operations automatically copy to the system clipboard.
+""set clipboard=unnamed
 
 " Navigation
 "------------------------------------------------
@@ -287,7 +287,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 call plug#end()
 
@@ -303,9 +303,19 @@ call plug#end()
 "Nerdtree: Toggle nerdtree
 nnoremap <leader>f :NERDTreeToggle<cr>
 
-"F4 Compile LaTeX: Use vimtex to compile the TeX document
+" VimTeX
+"------------------------------------------------
+" 	see ":help vimtex".
+let g:vimtex_view_method = 'zathura'
+
+" VimTeX uses latexmk as the default compiler backend
+" 	see ":help vimtex-compiler".
+
+" Most VimTeX mappings rely on localleader default "\"
+"let maplocalleader = ","
 " TODO Get vim compiling working. Setup without vimtex?
-"nnoremap <F4> :VimtexCompile<cr>
+"F5 Compile LaTeX: Use vimtex to compile the TeX document
+"nnoremap <F5> :VimtexCompile<cr>
 
 "F11 Activate reading mode with F11
 nnoremap <F11> :Goyo<cr>
