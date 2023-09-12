@@ -303,9 +303,19 @@ call plug#end()
 "Nerdtree: Toggle nerdtree
 nnoremap <leader>f :NERDTreeToggle<cr>
 
-"F4 Compile LaTeX: Use vimtex to compile the TeX document
+" VimTeX
+"------------------------------------------------
+" 	see ":help vimtex".
+let g:vimtex_view_method = 'zathura'
+
+" VimTeX uses latexmk as the default compiler backend
+" 	see ":help vimtex-compiler".
+
+" Most VimTeX mappings rely on localleader default "\"
+"let maplocalleader = ","
 " TODO Get vim compiling working. Setup without vimtex?
-"nnoremap <F4> :VimtexCompile<cr>
+"F5 Compile LaTeX: Use vimtex to compile the TeX document
+"nnoremap <F5> :VimtexCompile<cr>
 
 "F11 Activate reading mode with F11
 nnoremap <F11> :Goyo<cr>
