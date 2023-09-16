@@ -45,10 +45,17 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.img,.xlsx
 
 " Spellcheck
 "========================================
+" [s/]s : Move to next/previous misspelled words [s ]s
+" z= : show suggested spellings
+" zg : add to dictionary
 set spelllang=en_us "Add new iso codes comma separated.
 set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
+
+" Abbreviations
+"------------------------------------------------
+ab teh the
 
 " Search
 "========================================
@@ -67,8 +74,8 @@ nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
 " Source vimrc
 nnoremap <leader>s :source ~/.vimrc<CR>
-" Quick save
-nnoremap <leader>w :w<CR>
+nnoremap o o<Esc>
+nnoremap O O<Esc>
 
 " Clipboard
 "------------------------------------------------
@@ -288,6 +295,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-signify'
+"Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -313,9 +321,6 @@ let g:vimtex_view_method = 'zathura'
 
 " Most VimTeX mappings rely on localleader default "\"
 "let maplocalleader = ","
-" TODO Get vim compiling working. Setup without vimtex?
-"F5 Compile LaTeX: Use vimtex to compile the TeX document
-"nnoremap <F5> :VimtexCompile<cr>
 
 "F11 Activate reading mode with F11
 nnoremap <F11> :Goyo<cr>
@@ -327,7 +332,7 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 "------------------------------------------------
 " Set VimWiki to use markdown syntax:
 " Specify path of any directories to use VimWiki
-let g:vimwiki_list = [{'path': '~/Documents/VimWiki',
+let g:vimwiki_list = [{'path': '~/Dropbox/cp/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Colorscheme settings
