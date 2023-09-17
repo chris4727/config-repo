@@ -26,16 +26,15 @@ set autoindent
 
 " Line wrapping
 "========================================
+set textwidth=80
+set wrap
+set linebreak
 " Set the character number where colorcolumn appears
 set colorcolumn=80
 " Change GUI colorcolumn to black.
 highlight ColorColumn guibg=Black
 " Changes terminal colorcolumn to black.
 highlight ColorColumn ctermbg=0
-" Wrap paragraph
-"	To wrap line at end of wrap point, use `gqq'
-"	To wrap paragraph at end of wrap point, use `gq}'
-nnoremap <C-w> gq}
 
 " Autocomplete:
 "========================================
@@ -76,6 +75,7 @@ nnoremap <leader>r :set rnu!<CR>
 nnoremap <leader>s :source ~/.vimrc<CR>
 nnoremap o o<Esc>
 nnoremap O O<Esc>
+inoremap ii <Esc>
 
 " Clipboard
 "------------------------------------------------
@@ -120,7 +120,7 @@ nnoremap <Down> <Down>zz
 " Split
 "------------------------------------------------
 " [V]ertical split
-nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>v :vsp<CR>
 set splitbelow splitright
 " Shortcuts for split navitation:
 " TODO Look into fixing this for colemak-dh
@@ -323,7 +323,7 @@ let g:vimtex_view_method = 'zathura'
 "let maplocalleader = ","
 
 "F11 Activate reading mode with F11
-nnoremap <F11> :Goyo<cr>
+nnoremap <F11> :Goyo<CR>
 
 "F12 Activate reading with focus mode with F12
 nmap <F12> :Goyo <bar> Limelight!!<CR>"
