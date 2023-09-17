@@ -101,6 +101,8 @@ nnoremap <Down> <Down>zz
 
 " Colemak-DH remaps
 "------------------------------------------------
+"TODO Create a new vim command to toggle between qwerty and colemak-dh mappings. Ex. :Kbd!
+"See: https://dev.to/dlains/create-your-own-vim-commands-415b
 "nnoremap j nzz
 "nnoremap k ezz
 "nnoremap h m
@@ -295,7 +297,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-signify'
-"Plug 'junegunn/fzf.vim'
+"TODO Add/configure Plug 'junegunn/fzf.vim'
+"TODO Add/configure vim-surround plugin
 
 call plug#end()
 
