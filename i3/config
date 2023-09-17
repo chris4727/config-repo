@@ -17,8 +17,8 @@ font pango: FiraCode Nerd Font Regular 10
 # Mod4 = Gui key
 # Mod1 = Alt key
 # Swap to have alt as mod (for easier reach on regular keyboards)
-set $mod Mod1
-set $sup Mod4
+set $mod Mod4
+set $sup Mod1
 
 # Default tiling mode:
 workspace_layout default
