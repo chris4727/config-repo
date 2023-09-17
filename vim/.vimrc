@@ -297,8 +297,11 @@ Plug 'junegunn/limelight.vim'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-signify'
-"TODO Add/configure Plug 'junegunn/fzf.vim'
-"TODO Add/configure vim-surround plugin
+"TODO Add/configure the following plugins 
+"Plug 'junegunn/fzf.vim'
+"Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -335,7 +338,7 @@ nmap <F12> :Goyo <bar> Limelight!!<CR>"
 "------------------------------------------------
 " Set VimWiki to use markdown syntax:
 " Specify path of any directories to use VimWiki
-let g:vimwiki_list = [{'path': '~/Dropbox/cp/notes/',
+let g:vimwiki_list = [{'path': '~/Wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Colorscheme settings
