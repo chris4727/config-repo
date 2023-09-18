@@ -289,19 +289,21 @@ autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 
 call plug#begin('~/.vim/autoload')
 
-Plug 'ap/vim-css-color'
+"Asthetic
 Plug 'morhetz/gruvbox'
+Plug 'ap/vim-css-color'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
+"Version control
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 "TODO Add/configure the following plugins 
 "Plug 'junegunn/fzf.vim'
 "Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-commentary'
 
 call plug#end()
