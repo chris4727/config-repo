@@ -10,6 +10,7 @@ syntax on
 set encoding=utf-8
 set number
 set relativenumber
+set paste
 set scrolloff=10
 set showmode
 set showcmd
