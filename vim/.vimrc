@@ -1,5 +1,7 @@
 "========================================
 " .vimrc
+" Requires vim-plug. Install with:
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "========================================
 
 " General settings
@@ -36,6 +38,9 @@ set colorcolumn=80
 highlight ColorColumn guibg=Black
 " Changes terminal colorcolumn to black.
 highlight ColorColumn ctermbg=0
+" Format paragraph (selected or not) to 80 character lines.
+nnoremap <Leader>g gqap
+xnoremap <Leader>g gqa
 
 " Autocomplete:
 "========================================
@@ -45,17 +50,39 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.img,.xlsx
 
 " Spellcheck
 "========================================
+"Usage:
 " [s/]s : Move to next/previous misspelled words [s ]s
 " z= : show suggested spellings
 " zg : add to dictionary
+"TODO Toggle with <F?>
 set spelllang=en_us "Add new iso codes comma separated.
 set spell
+"TODO Set misspelled words to red and squiggly underline
 hi clear SpellBad
-hi SpellBad cterm=underline
+" Spelling mistakes will be colored up red.
+hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f 
+hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
+
+" Cursor
+"========================================
+" Use a line cursor in insert mode and a block cursor everywhere else.
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+" Reference chart of values:
+"   Ps = 0  -> blinking block.
+"   Ps = 1  -> blinking block (default).
+"   Ps = 2  -> steady block.
+"   Ps = 3  -> blinking underline.
+"   Ps = 4  -> steady underline.
+"   Ps = 5  -> blinking bar (xterm).
+"   Ps = 6  -> steady bar (xterm).
 
 " Abbreviations
 "------------------------------------------------
-ab teh the
+"TODO Get this working to autocorrect 'teh' to 'the'
+"iab teh the
 
 " Search
 "========================================
@@ -64,31 +91,47 @@ set ignorecase
 set smartcase
 set showmatch
 set hlsearch
-" Find next TODO (case sensitive)
-nnoremap <leader>t <Esc>/TODO<Enter>
+" Find next TODO (case insensitive)
+nnoremap <leader>t <Esc>/todo<Enter>
 
-" Key remaps
+" Leader
 "========================================
 let mapleader=" "
+let maplocalleader=","
+
+" Toggle line numbers
 nnoremap <leader>n :set nu!<CR>
 nnoremap <leader>r :set rnu!<CR>
-" Source vimrc
-nnoremap <leader>s :source ~/.vimrc<CR>
-nnoremap o o<Esc>
-nnoremap O O<Esc>
-inoremap ii <Esc>
+
+" Toggle visually showing all whitespace characters.
+nnoremap <F7> :set list!<CR>
+
+" Variable $MYVIMRC is set by vim to the vimrc being used
+" 	:echo $MYVIMRC
+" Edit Vim config file in a split
+map <Leader>ev :vsp $MYVIMRC<CR>
+" Source Vim config file.
+map <Leader>sv :source $MYVIMRC<CR>
 
 " Clipboard
 "------------------------------------------------
-set paste
-" Requires gvim for + and * registers for clipboard access.
-" Yank selection into system clipboard (may need `+` instead of `*`)
-vnoremap <C-c> "+y
-" Yank into system clipboard (may need `+` instead of `*`)
-inoremap <C-v> <C-r>+
 " See :help clipboard. 
-" You can :set clipboard=unnamed or :set clipboard=unnamedplus to make all yanking/deleting operations automatically copy to the system clipboard.
-""set clipboard=unnamed
+" 	Requires gvim for + and * registers for clipboard access.
+set clipboard=unnamedplus,unnamed
+
+" Yank selection into system clipboard (may need `+` instead of `*`)
+vnoremap <leader>cy "+y
+
+" Copy the current buffer's path to your clipboard.
+nmap <leader>cp :let @+ = expand("%")<CR>
+
+" Moving lines
+"------------------------------------------------
+" Move lines up or down
+nnoremap K :m .-2<CR>==
+nnoremap J :m .+1<CR>==
+nnoremap K :m '<-2<CR>gv=gv
+nnoremap J :m '>+1<CR>gv=gv
 
 " Navigation
 "------------------------------------------------
@@ -104,6 +147,7 @@ nnoremap <Down> <Down>zz
 "------------------------------------------------
 "TODO Create a new vim command to toggle between qwerty and colemak-dh mappings. Ex. :Kbd!
 "See: https://dev.to/dlains/create-your-own-vim-commands-415b
+"TODO Alt: Create variables that can be easily set in the .vimrc
 "nnoremap j nzz
 "nnoremap k ezz
 "nnoremap h m
@@ -124,13 +168,15 @@ nnoremap <Down> <Down>zz
 "------------------------------------------------
 " [V]ertical split
 nnoremap <leader>v :vsp<CR>
+nnoremap <leader>v :vsp<CR>
 set splitbelow splitright
 " Shortcuts for split navitation:
 " TODO Look into fixing this for colemak-dh
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Navigate around splits with a single key combo.
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 nnoremap <C-up> <C-w>+
 nnoremap <C-down> <C-w>-
 nnoremap <C-left> <C-w>>
@@ -138,6 +184,8 @@ nnoremap <C-right> <C-w><
 
 " Snippets
 "===============================================
+"TODO Move these to seperate ftplugin files
+"See https://www.ejmastnak.com/tutorials/vim-latex/vimtex/#configuration`k:w
 
 " Space-; to find and replace <++> in insert
 "------------------------------------------------
@@ -284,8 +332,6 @@ autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 
 " Plugins: Vim-plug
 "========================================
-" Installing vim-plug:
-"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 call plug#begin('~/.vim/autoload')
 
@@ -297,13 +343,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'lervag/vimtex'
+Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 "Version control
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+
 "TODO Add/configure the following plugins 
 "Plug 'junegunn/fzf.vim'
-"Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-commentary'
 
 call plug#end()
@@ -322,25 +369,25 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 
 " VimTeX
 "------------------------------------------------
-" 	see ":help vimtex".
-let g:vimtex_view_method = 'zathura'
-
+"	see ":help vimtex".
 " VimTeX uses latexmk as the default compiler backend
 " 	see ":help vimtex-compiler".
 
-" Most VimTeX mappings rely on localleader default "\"
-"let maplocalleader = ","
+let g:vimtex_view_method = 'zathura'
 
+" Goyo
+"------------------------------------------------
 "F11 Activate reading mode with F11
 nnoremap <F11> :Goyo<CR>
 
 "F12 Activate reading with focus mode with F12
 nmap <F12> :Goyo <bar> Limelight!!<CR>"
 
-"VimWiki settings.
+"VimWiki
 "------------------------------------------------
 " Set VimWiki to use markdown syntax:
 " Specify path of any directories to use VimWiki
+"TODO Create seperate Wiki for personal notes and public reference notes.
 let g:vimwiki_list = [{'path': '~/Wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
