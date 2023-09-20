@@ -59,11 +59,14 @@ set spelllang=en_us "Add new iso codes comma separated.
 set spell
 "TODO Set misspelled words to red and squiggly underline
 hi clear SpellBad
+" Toggle spell check.
+nnoremap <F5> :setlocal spell!<CR>
+inoremap <F5> <C-o>:setlocal spell!<CR>
 " Spelling mistakes will be colored up red.
-hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f 
-hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
-hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
-hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellBad cterm=underline ctermfg=203 guifg=#fb4934 
+hi SpellLocal cterm=underline ctermfg=203 guifg=#fb4934
+hi SpellRare cterm=underline ctermfg=203 guifg=#fb4934
+hi SpellCap cterm=underline ctermfg=203 guifg=#fb4934
 
 " Cursor
 "========================================
