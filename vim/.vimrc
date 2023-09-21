@@ -122,11 +122,14 @@ map <Leader>sv :source $MYVIMRC<CR>
 " 	Requires gvim for + and * registers for clipboard access.
 set clipboard=unnamedplus,unnamed
 
-" Yank selection into system clipboard (may need `+` instead of `*`)
+" Copy/Yank selection into system clipboard
 vnoremap <leader>cy "+y
 
 " Copy the current buffer's path to your clipboard.
 nmap <leader>cp :let @+ = expand("%")<CR>
+
+" + Register is system clipboard
+" * Register is
 
 " Moving lines
 "------------------------------------------------
