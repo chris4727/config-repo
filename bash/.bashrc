@@ -83,6 +83,7 @@ alias pc='pacman -Qdtq | pacman -Rs'
 alias calc='qalc'			# Calculator
 alias play='mpv'			# Media player
 alias sys='btm'				# System monitor
+alias disk='dust'			# Disk manager
 alias file='lf'				# File manager
 #alias music='ncmpcpp'		# Music player
 #alias mail='neomutt'		# Email
