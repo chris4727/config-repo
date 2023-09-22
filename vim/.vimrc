@@ -362,7 +362,7 @@ Plug 'vimwiki/vimwiki'
 "Version control
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-"TODO Configure vim-dirdiff
+"TODO Allows diffs of directories
 Plug 'will133/vim-dirdiff'
 
 "TODO Add/configure the following plugins 
