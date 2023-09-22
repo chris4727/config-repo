@@ -153,7 +153,7 @@ alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P 
 #------------------------------------------------
 alias gs='git status -sb'
 alias ga='git add'
-alias gs='!git rev-list --all | xargs git grep -F'	# Search commits
+alias gss='!git rev-list --all | xargs git grep -F'	# Search commits
 alias gl='git log --oneline'
 alias gd='git diff origin/main'			#Diff staged changes
 alias gvd='git difftool -t vimdiff -y'
