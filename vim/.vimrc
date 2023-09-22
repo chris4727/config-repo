@@ -125,6 +125,10 @@ set clipboard=unnamedplus,unnamed
 " Copy/Yank selection into system clipboard
 vnoremap <leader>cy "+y
 
+" TODO Set binding to paste from system clipboard <leader>p
+" Paste selection from system clipboard
+vnoremap <leader>p "+P
+
 " Copy the current buffer's path to your clipboard.
 nmap <leader>cp :let @+ = expand("%")<CR>
 
@@ -358,6 +362,8 @@ Plug 'vimwiki/vimwiki'
 "Version control
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+"TODO Configure vim-dirdiff
+Plug 'will133/vim-dirdiff'
 
 "TODO Add/configure the following plugins 
 "Plug 'junegunn/fzf.vim'
