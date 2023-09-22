@@ -36,9 +36,16 @@ export MANPAGER="vim -M +MANPAGER -"
 #================================================
 #export PS1="\[$(tput setaf 5)\]\w \[$(tput setaf 10)\]->\[$(tput sgr0)\] "
 export PS1="\[$(tput setaf 5)\]\u\[$(tput setaf 10)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 5)\]\w \[$(tput setaf 10)\]->\[$(tput sgr0)\] "
+
 # Variables:
-# Date: \D{%m/%d} | User: \u | Host: \h | Working directory: \w
+#------------------------------------------------
+# Date: \D{%m/%d}
+# User: \u
+# Host: \h
+# Working directory: \w
+
 # Colors:
+#------------------------------------------------
 #| Clr: | Dk | Lt |
 #|------|----|----|
 #| Bkg: |  0 |  8 |
@@ -64,12 +71,12 @@ shopt -s histappend # do not overwrite history
 
 # Package manager: Pacman
 #------------------------------------------------
-alias pacup='pacman -Syu'
-alias pacls='pacman -Qs'
-alias pacss='pacman -Ss'
-alias pacinstall='pacman -S'
-alias pacrm='pacman -Rs'
-alias pacclean='pacman -Qdtq | pacman -Rs'
+alias pu='pacman -Syu'
+alias pl='pacman -Qs'
+alias ps='pacman -Ss'
+alias pi='pacman -S'
+alias pr='pacman -Rs'
+alias pc='pacman -Qdtq | pacman -Rs'
 
 # Launchers
 #------------------------------------------------
@@ -146,9 +153,9 @@ alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P 
 #------------------------------------------------
 alias gs='git status -sb'
 alias ga='git add'
-alias gg='!git rev-list --all | xargs git grep -F'	# Search commits
+alias gs='!git rev-list --all | xargs git grep -F'	# Search commits
 alias gl='git log --oneline'
 alias gd='git diff origin/main'			#Diff staged changes
 alias gvd='git difftool -t vimdiff -y'
-alias gc='git commit -m'
+alias gc='git commit'
 alias gp='git push -u origin main'
