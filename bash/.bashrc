@@ -106,7 +106,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# Faster navigation to common config files
+# Bookmarks for common files/directories
 #------------------------------------------------
 alias cdconfig='cd $HOME/config-repo/ && ll'
 alias cfvim='vim $HOME/config-repo/vim/.vimrc'
