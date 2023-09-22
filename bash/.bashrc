@@ -108,11 +108,11 @@ alias rm='rm -i'
 
 # Faster navigation to common config files
 #------------------------------------------------
-alias cdconfig='cd $HOME/config-repo/ && ll'
-alias cfvim='vim $HOME/config-repo/vim/.vimrc'
-alias cfbash='vim $HOME/config-repo/bash/.bashrc'
-alias cfwm='vim $HOME/config-repo/i3/config'
-alias cfterm='vim $HOME/config-repo/kitty/kitty.conf'
+alias cdcf='cd $HOME/config-repo/ && ll'
+alias evim='vim $HOME/config-repo/vim/.vimrc'
+alias eash='vim $HOME/config-repo/bash/.bashrc'
+alias ewm='vim $HOME/config-repo/i3/config'
+alias eterm='vim $HOME/config-repo/kitty/kitty.conf'
 
 # Fetch
 #------------------------------------------------
