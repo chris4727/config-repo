@@ -115,6 +115,8 @@ nnoremap <F7> :set list!<CR>
 map <Leader>ev :vsp $MYVIMRC<CR>
 " Source Vim config file.
 map <Leader>sv :source $MYVIMRC<CR>
+" Edit bash config file in a split
+map <Leader>eb :vsp ~/.bashrc<CR>
 
 " Clipboard
 "------------------------------------------------
@@ -355,7 +357,7 @@ Plug 'ap/vim-css-color'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'lambdalisue/fern.vim'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
@@ -364,7 +366,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 "TODO Allows diffs of directories
 Plug 'will133/vim-dirdiff'
-
+Plug 'AndrewRadev/linediff.vim'
 "TODO Add/configure the following plugins 
 "Plug 'junegunn/fzf.vim'
 "Plug 'tpope/vim-commentary'

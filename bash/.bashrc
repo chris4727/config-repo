@@ -83,6 +83,7 @@ alias pc='pacman -Qdtq | pacman -Rs'
 alias calc='qalc'			# Calculator
 alias play='mpv'			# Media player
 alias sys='btm'				# System monitor
+alias disk='dust'			# Disk manager
 alias file='lf'				# File manager
 #alias music='ncmpcpp'		# Music player
 #alias mail='neomutt'		# Email
@@ -108,11 +109,11 @@ alias rm='rm -i'
 
 # Bookmarks for common files/directories
 #------------------------------------------------
-alias cdconfig='cd $HOME/config-repo/ && ll'
-alias cfvim='vim $HOME/config-repo/vim/.vimrc'
-alias cfbash='vim $HOME/config-repo/bash/.bashrc'
-alias cfwm='vim $HOME/config-repo/i3/config'
-alias cfterm='vim $HOME/config-repo/kitty/kitty.conf'
+alias cdcf='cd $HOME/config-repo/ && ll'
+alias evim='vim $HOME/config-repo/vim/.vimrc'
+alias eash='vim $HOME/config-repo/bash/.bashrc'
+alias ewm='vim $HOME/config-repo/i3/config'
+alias eterm='vim $HOME/config-repo/kitty/kitty.conf'
 
 # Fetch
 #------------------------------------------------
