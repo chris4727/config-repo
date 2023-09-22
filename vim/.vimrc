@@ -234,12 +234,16 @@ inoremap ;~~ ≈
 inoremap ;<= ≤
 inoremap ;>= ≥
 inoremap ;/= ≠
+" Insert date time
+nnoremap ;dt :exe 'r!date --date="now" "+\%F<Space>\%T<Space>\%a"'<CR>
 
 " Markdown
 "------------------------------------------------
+" Insert date time heading
+autocmd FileType markdown,vimwiki nnoremap ;dh :exe 'r!date --date="now" "+\%F<Space>\%T<Space>\%a"'<CR>I#<Space><Esc>$
 " [h]eading 1
-autocmd FileType markdown inoremap ;h <Esc>I#<Space><Esc>A
-autocmd FileType markdown nnoremap ;h I#<Space><Esc>$ 
+autocmd FileType markdown inoremap ;h1 <Esc>I#<Space><Esc>A
+autocmd FileType markdown nnoremap ;h1 I#<Space><Esc>$ 
 " [h]eading 2
 autocmd FileType markdown inoremap ;h2 <Esc>I##<Space><Esc>A
 autocmd FileType markdown nnoremap ;h2 I##<Space><Esc>$ 
