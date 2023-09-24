@@ -85,6 +85,7 @@ alias play='mpv'			# Media player
 alias sys='btm'				# System monitor
 alias disk='dust'			# Disk manager
 alias file='lf'				# File manager
+alias br='vimv'				# Bulk rename
 #alias music='ncmpcpp'		# Music player
 #alias mail='neomutt'		# Email
 #alias rss='newsboat'		# RSS reader
