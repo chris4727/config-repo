@@ -27,6 +27,11 @@ set shiftwidth=4
 set tabstop=4
 set autoindent
 
+" Operating System (OS)
+"========================================
+"TODO Set an OS based switch to be able apply throughout.
+" https://vi.stackexchange.com/questions/2572/detect-os-in-vimscript
+
 " Line wrapping
 "========================================
 set textwidth=80
@@ -160,6 +165,7 @@ nnoremap <Down> <Down>zz
 "TODO Create a new vim command to toggle between qwerty and colemak-dh mappings. Ex. :Kbd!
 "See: https://dev.to/dlains/create-your-own-vim-commands-415b
 "TODO Alt: Create variables that can be easily set in the .vimrc
+"See: https://learnvimscriptthehardway.stevelosh.com/chapters/19.html
 "nnoremap j nzz
 "nnoremap k ezz
 "nnoremap h m
