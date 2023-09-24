@@ -358,7 +358,7 @@ autocmd FileType tex inoremap ;k \href{}{<++>}<++><Esc>10hi
 call plug#begin('~/.vim/autoload')
 
 "Asthetic
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'junegunn/goyo.vim'
