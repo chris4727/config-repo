@@ -245,6 +245,8 @@ nnoremap ;dt :exe 'r!date --date="now" "+\%F<Space>\%T<Space>\%a"'<CR>
 
 " Markdown
 "------------------------------------------------
+let g:markdown_fenced_languages = ['vim', 'tex', 'bash=sh']
+let g:markdown_syntax_conceal = 0
 " Insert date time heading
 autocmd FileType markdown,vimwiki nnoremap ;dh :exe 'r!date --date="now" "+\%F<Space>\%T<Space>\%a"'<CR>I#<Space><Esc>$
 " [h]eading 1
