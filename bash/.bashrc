@@ -70,14 +70,13 @@ shopt -s histappend # do not overwrite history
 #$ history | awk '{cmd[$2]++} END {for(elem in cmd) {print cmd[elem] " " elem}}' | sort -n -r | head -10
 
 # Package manager: Pacman
-# TODO Update for paru package manager
 #------------------------------------------------
-alias pacu='pacman -Syu'				# Update
-alias pacl='pacman -Qs'					# List user installed packages
-alias pacs='pacman -Ss'					# Search repositories for package
-alias paci='pacman -S'					# Install package
-alias pacr='pacman -Rs'					# Remove package
-alias pacc='pacman -Qdtq | pacman -Rs'	# Cleanup packages
+alias pu='pacman -Syu'
+alias pl='pacman -Qs'
+alias ps='pacman -Ss'
+alias pi='pacman -S'
+alias pr='pacman -Rs'
+alias pc='pacman -Qdtq | pacman -Rs'
 
 # Launchers
 #------------------------------------------------
@@ -96,6 +95,13 @@ alias br='vimv'				# Bulk rename
 alias ls='ls -lh --color=auto'
 alias ll='ls -lah --color=auto'
 
+# Common `tree` commands
+#------------------------------------------------
+alias lt='tree -C ./'        # View tree of all files. May be slow.
+alias ltd='tree -dC ./'      # View tree of directories only
+alias lt2='tree -C -L 2 ./'  # View tree with depth of 2
+alias lt3='tree -C -L 3 ./'  # View tree with depth of 3
+
 # Conform before overwriting something
 #------------------------------------------------
 alias cp='cp -i'
@@ -105,13 +111,10 @@ alias rm='rm -i'
 # Bookmarks for common files/directories
 #------------------------------------------------
 alias cdcf='cd $HOME/config-repo/ && ll'
-alias cdtex='cd $HOME/Documents/tex/ && ll'
-alias cdwiki='cd $HOME/Wiki/ && ll'
 alias evim='vim $HOME/config-repo/vim/.vimrc'
-alias ebash='vim $HOME/config-repo/bash/.bashrc'
+alias eash='vim $HOME/config-repo/bash/.bashrc'
 alias ewm='vim $HOME/config-repo/i3/config'
 alias eterm='vim $HOME/config-repo/kitty/kitty.conf'
-alias ecd='vim $HOME/config-repo/abcde/abcde.conf'
 
 # Fetch
 #------------------------------------------------
@@ -128,8 +131,8 @@ alias fontgrep='fc-list | grep -i --color=auto'
 
 # Rip disks to file
 #------------------------------------------------
-# Rip audio CD to flac
-alias ripcd='abcde -o flac -G -c ~/.config/abcde/abcde.conf'
+# Rip audio CD to both flac and opus
+alias ripmusic='abcde -o flac -G -c ~/.config/abcde/abcde.conf'
 # Rip audiobook CD to voice optimized, low bitrate opus
 alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcdebook.conf'
 # Rip DVD
@@ -139,7 +142,7 @@ alias ripbook='abcde -o opus -c $HOME/.config/abcde/abcdebook.conf'
 # yt download
 #------------------------------------------------
 #List available codecs
-alias ytls='yt-dlp -F'
+alias ytlist='yt-dlp -F'
 # Extract audio, opus best quality
 alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P $HOME/Music/unsorted'
 # Look into possible codecs. One for small and efficient, one for best. 
@@ -150,12 +153,11 @@ alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P 
 
 # Git
 #------------------------------------------------
-alias gits='git status -sb'								# Git status
-alias gitu='git pull'									# Git pull (update)
-alias gita='git add'									# Git add
-alias gitg='!git rev-list --all | xargs git grep -F'	# Search commits (grep)
-alias gitl='git log --oneline'							# Git log
-alias gitd='git diff origin/main'						# Diff staged changes
-alias gitvd='git difftool -t vimdiff -y'				# Git vimdiff
-alias gitc='git commit'									# Commit message in editor
-alias gitp='git push -u origin main'					# Git push to origin
+alias gs='git status -sb'
+alias ga='git add'
+alias gss='!git rev-list --all | xargs git grep -F'	# Search commits
+alias gl='git log --oneline'
+alias gd='git diff origin/main'			#Diff staged changes
+alias gvd='git difftool -t vimdiff -y'
+alias gc='git commit'
+alias gp='git push -u origin main'
