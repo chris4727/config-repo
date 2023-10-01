@@ -12,7 +12,6 @@ syntax on
 set encoding=utf-8
 set number
 set relativenumber
-set paste
 set scrolloff=10
 set showmode
 set showcmd
@@ -27,25 +26,18 @@ set shiftwidth=4
 set tabstop=4
 set autoindent
 
-" Operating System (OS)
-"========================================
-"TODO Set an OS based switch to be able apply throughout.
-" https://vi.stackexchange.com/questions/2572/detect-os-in-vimscript
-
 " Line wrapping
 "========================================
-set textwidth=80
-set wrap
-set linebreak
 " Set the character number where colorcolumn appears
 set colorcolumn=80
 " Change GUI colorcolumn to black.
 highlight ColorColumn guibg=Black
 " Changes terminal colorcolumn to black.
 highlight ColorColumn ctermbg=0
-" Format paragraph (selected or not) to 80 character lines.
-nnoremap <Leader>g gqap
-xnoremap <Leader>g gqa
+" Wrap paragraph
+"	To wrap line at end of wrap point, use `gqq'
+"	To wrap paragraph at end of wrap point, use `gq}'
+nnoremap <C-w> gq}
 
 " Autocomplete:
 "========================================
@@ -55,11 +47,6 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.img,.xlsx
 
 " Spellcheck
 "========================================
-"Usage:
-" [s/]s : Move to next/previous misspelled words [s ]s
-" z= : show suggested spellings
-" zg : add to dictionary
-"TODO Toggle with <F?>
 set spelllang=en_us "Add new iso codes comma separated.
 set spell
 "TODO Set misspelled words to red and squiggly underline
@@ -125,30 +112,14 @@ map <Leader>eb :vsp ~/.bashrc<CR>
 
 " Clipboard
 "------------------------------------------------
+" Requires gvim for + and * registers for clipboard access.
+" Yank selection into system clipboard (may need `+` instead of `*`)
+vnoremap <C-c> "+y
+" Yank into system clipboard (may need `+` instead of `*`)
+inoremap <C-v> <C-r>+
 " See :help clipboard. 
-" 	Requires gvim for + and * registers for clipboard access.
-set clipboard=unnamedplus,unnamed
-
-" Copy/Yank selection into system clipboard
-vnoremap <leader>cy "+y
-
-" TODO Set binding to paste from system clipboard <leader>p
-" Paste selection from system clipboard
-vnoremap <leader>p "+P
-
-" Copy the current buffer's path to your clipboard.
-nmap <leader>cp :let @+ = expand("%")<CR>
-
-" + Register is system clipboard
-" * Register is
-
-" Moving lines
-"------------------------------------------------
-" Move lines up or down
-nnoremap K :m .-2<CR>==
-nnoremap J :m .+1<CR>==
-nnoremap K :m '<-2<CR>gv=gv
-nnoremap J :m '>+1<CR>gv=gv
+" You can :set clipboard=unnamed or :set clipboard=unnamedplus to make all yanking/deleting operations automatically copy to the system clipboard.
+""set clipboard=unnamed
 
 " Navigation
 "------------------------------------------------
@@ -213,25 +184,27 @@ map <Space>; <Esc>/<++><Enter>"_c4l
 
 " General
 "------------------------------------------------
-inoremap ;( ()<++><Esc>4hi
-inoremap ;{ {}<++><Esc>4hi
-inoremap ;[ []<++><Esc>4hi
-inoremap ;" “”<++><Esc>4hi
-inoremap ;' ‘’<++><Esc>4hi
-inoremap ;-- –
-inoremap ;--- —
-inoremap ;!! ¡
-inoremap ;?? ¿
+nnoremap ;( i()<++><Esc>4hi
+nnoremap ;{ i{}<++><Esc>4hi
+nnoremap ;[ i[]<++><Esc>4hi
+nnoremap ;" i""<++><Esc>4hi
+nnoremap ;' i''<++><Esc>4hi
+"inoremap ;" “”<++><Esc>4hi
+"inoremap ;' ‘’<++><Esc>4hi
+nnoremap ;-- i–
+nnoremap ;--- i—
+nnoremap ;!! i¡
+nnoremap ;?? i¿
 
 " Accents and other characters
 "------------------------------------------------
 " List of unicode characters can be found here:
 " https://en.wikipedia.org/wiki/List_of_Unicode_characters
-inoremap ;'a á
-inoremap ;'e é
-inoremap ;'o ó
-inoremap ;"i ï
-inoremap ;~n ñ
+nnoremap ;'a á
+nnoremap ;'e é
+nnoremap ;'o ó
+nnoremap ;"i ï
+nnoremap ;~n ñ
 
 " Math
 "------------------------------------------------
@@ -375,6 +348,8 @@ Plug 'tpope/vim-fugitive'
 "TODO Allows diffs of directories
 Plug 'will133/vim-dirdiff'
 Plug 'AndrewRadev/linediff.vim'
+"Languages
+Plug 'tbastos/vim-lua'
 "TODO Add/configure the following plugins 
 "Plug 'junegunn/fzf.vim'
 "Plug 'tpope/vim-commentary'
