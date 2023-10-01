@@ -79,9 +79,9 @@ alias paci='pacman -S'					# Install package
 alias pacr='pacman -Rs'					# Remove package
 alias pacc='pacman -Qdtq | pacman -Rs'	# Cleanup packages
 
-# Launchers
+# Application launchers
 #------------------------------------------------
-alias calc='qalc'			# Calculator
+alias cal='qalc'			# Calculator
 alias play='mpv'			# Media player
 alias sys='btm'				# System monitor
 alias disk='dust'			# Disk manager
@@ -91,12 +91,18 @@ alias br='vimv'				# Bulk rename
 #alias mail='neomutt'		# Email
 #alias rss='newsboat'		# RSS reader
 
+# Files
+#------------------------------------------------
+alias play='mpv'			# Video/audio player
+alias pdf='zathura'			# PDF viewer
+alias icat='kitty +kitten icat'	# Image cat
+
 # Change default ls behavior
 #------------------------------------------------
 alias ls='ls -lh --color=auto'
 alias ll='ls -lah --color=auto'
 
-# Conform before overwriting something
+# Confirm before overwriting something
 #------------------------------------------------
 alias cp='cp -i'
 alias mv='mv -i'
@@ -105,8 +111,12 @@ alias rm='rm -i'
 # Bookmarks for common files/directories
 #------------------------------------------------
 alias cdcf='cd $HOME/config-repo/ && ll'
+alias cdpic='cd $HOME/Pictures/ && ll'
 alias cdtex='cd $HOME/Documents/tex/ && ll'
 alias cdwiki='cd $HOME/Wiki/ && ll'
+
+# Edit config files
+#------------------------------------------------
 alias evim='vim $HOME/config-repo/vim/.vimrc'
 alias ebash='vim $HOME/config-repo/bash/.bashrc'
 alias ewm='vim $HOME/config-repo/i3/config'
@@ -150,12 +160,12 @@ alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P 
 
 # Git
 #------------------------------------------------
-alias gits='git status -sb'								# Git status
-alias gitu='git pull'									# Git pull (update)
-alias gita='git add'									# Git add
-alias gitg='!git rev-list --all | xargs git grep -F'	# Search commits (grep)
-alias gitl='git log --oneline'							# Git log
-alias gitd='git diff origin/main'						# Diff staged changes
-alias gitvd='git difftool -t vimdiff -y'				# Git vimdiff
-alias gitc='git commit'									# Commit message in editor
-alias gitp='git push -u origin main'					# Git push to origin
+alias gs='git status -sb'							# Git status
+alias gu='git pull'									# Git pull (update)
+alias ga='git add'									# Git add
+alias gg='!git rev-list --all | xargs git grep -F'	# Search commits (grep)
+alias gl='git log --oneline'						# Git log
+alias gd='git diff origin/main'						# Diff staged changes
+alias gvd='git difftool -t vimdiff -y'				# Git vimdiff
+alias gc='git commit'								# Commit message in editor
+alias gp='git push -u origin main'					# Git push to origin
