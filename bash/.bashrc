@@ -96,6 +96,7 @@ alias br='vimv'				# Bulk rename
 alias play='mpv'			# Video/audio player
 alias pdf='zathura'			# PDF viewer
 alias icat='kitty +kitten icat'	# Image cat
+alias imv='magick'			# Convert image with imagemagick
 
 # Change default ls behavior
 #------------------------------------------------
@@ -160,12 +161,13 @@ alias yta='yt-dlp -x --audio-format opus --audio-quality 0 --embed-thumbnail -P 
 
 # Git
 #------------------------------------------------
-alias gs='git status -sb'							# Git status
-alias gu='git pull'									# Git pull (update)
-alias ga='git add'									# Git add
-alias gg='!git rev-list --all | xargs git grep -F'	# Search commits (grep)
-alias gl='git log --oneline'						# Git log
-alias gd='git diff origin/main'						# Diff staged changes
+alias gst='git status -sb'							# Git status
+alias gup='git pull'									# Git pull (update)
+alias gad='git add'									# Git add
+alias ggr='!git rev-list --all | xargs git grep -F'	# Search commits (grep)
+alias glo='git log --oneline'						# Git log
+alias gdi='git diff origin/main'						# Diff staged changes
 alias gvd='git difftool -t vimdiff -y'				# Git vimdiff
-alias gc='git commit'								# Commit message in editor
-alias gp='git push -u origin main'					# Git push to origin
+alias gcm='git commit'								# Commit message in editor
+alias gps='git push -u origin main'					# Git push to origin
+alias gpu='git pull'								# Git pull
