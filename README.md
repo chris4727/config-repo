@@ -6,6 +6,7 @@ Configuration for i3 window manager system.
 
 - abcde CD ripping and encoding.
 - bash terminal
+- betterlockscreen
 - dunst notifications
 - i3 window manager
 - kitty terminal
