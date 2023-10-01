@@ -20,11 +20,11 @@ cmd mkdir ${{
 #  $EDITOR $ans
 #}}
 
-#cmd setwallpaper ${{
-#    cp "$f" ~/.config/wall.jpg
-#    xwallpaper --zoom "$f"
-#    betterlockscreen -u "$f" --fx
-#}}
+cmd setwallpaper ${{
+    cp "$f" ~/.config/wallpaper/wallpaper.jpg
+    betterlockscreen -u "$f" --fx
+    betterlockscreen -w "$f"
+}}
 
 # Archive bindings
 cmd unarchive ${{
