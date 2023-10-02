@@ -113,18 +113,23 @@ alias rm='rm -i'
 
 # Bookmarks for common files/directories
 #------------------------------------------------
-alias cdcf='cd $HOME/config-repo/ && ll'
-alias cdpic='cd $HOME/Pictures/ && ll'
-alias cdtex='cd $HOME/Documents/tex/ && ll'
-alias cdwiki='cd $HOME/Wiki/ && ll'
+alias cdc='cd $HOME/.config/ && ll'
+alias cddb='cd $HOME/Dropbox/ && ll'
+alias cddc='cd $HOME/Documents/ && ll'
+alias cddn='cd $HOME/Downloads/ && ll'
+alias cdpc='cd $HOME/Pictures/ && ll'
+alias cdvd='cd $HOME/Videos/ && ll'
+alias cdrp='cd $HOME/repos/ && ll'
+alias cdsc'cd $HOME/.local/bin/ && ll'
+alias cdwk='cd $HOME/Wiki/ && ll'
+alias cdtr='cd $HOME/.local/share/Trash/files/ && ll'
 
 # Edit config files
 #------------------------------------------------
-alias evim='vim $HOME/config-repo/vim/.vimrc'
-alias ebash='vim $HOME/config-repo/bash/.bashrc'
+alias evi='vim $HOME/config-repo/vim/.vimrc'
+alias esh='vim $HOME/config-repo/bash/.bashrc'
 alias ewm='vim $HOME/config-repo/i3/config'
-alias eterm='vim $HOME/config-repo/kitty/kitty.conf'
-alias ecd='vim $HOME/config-repo/abcde/abcde.conf'
+alias ete='vim $HOME/config-repo/kitty/kitty.conf'
 
 # Fetch
 #------------------------------------------------
