@@ -177,4 +177,3 @@ alias gdi='git diff origin/main'						# Diff staged changes
 alias gvd='git difftool -t vimdiff -y'				# Git vimdiff
 alias gcm='git commit'								# Commit message in editor
 alias gps='git push -u origin main'					# Git push to origin
-alias gpu='git pull'								# Git pull
