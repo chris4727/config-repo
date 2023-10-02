@@ -120,7 +120,7 @@ alias cddn='cd $HOME/Downloads/ && ll'
 alias cdpc='cd $HOME/Pictures/ && ll'
 alias cdvd='cd $HOME/Videos/ && ll'
 alias cdrp='cd $HOME/repos/ && ll'
-alias cdsc'cd $HOME/.local/bin/ && ll'
+alias cdsc='cd $HOME/.local/bin/ && ll'
 alias cdwk='cd $HOME/Wiki/ && ll'
 alias cdtr='cd $HOME/.local/share/Trash/files/ && ll'
 
