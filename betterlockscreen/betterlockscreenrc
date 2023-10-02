@@ -8,36 +8,34 @@ fx_list=(dim blur dimblur pixel dimpixel color)
 dim_level=40
 blur_level=1
 pixel_scale=10,1000
-solid_color=333333
+solid_color=282828
 wallpaper_cmd="feh --bg-fill"
 quiet=false
 
-# default theme
+# Color theme
 loginbox=28282866
-loginshadow=00000000
+loginshadow=28282800
 locktext="Type password to unlock..."
 font="sans-serif"
-ringcolor=ffffffff
+ringcolor=b16286ff			# default ring: purpledk
 insidecolor=00000000
 separatorcolor=00000000
-ringvercolor=ffffffff
+ringvercolor=fabd2fff		# ring when verifying: yellowlt
 insidevercolor=00000000
-ringwrongcolor=ffffffff
-insidewrongcolor=d23c3dff
-timecolor=ffffffff
+ringwrongcolor=cc241dff		# ring when wrong: reddk
+insidewrongcolor=000000	# inner when wrong: transparent
+timecolor=b8bb26ff			# clock: greenlt
 time_format="%H:%M:%S"
-greetercolor=ffffffff
+greetercolor=ebdbb2ff		# text color: fg1
 layoutcolor=ffffffff
-keyhlcolor=d23c3dff
+keyhlcolor=b8bb26ff			# ring highlight typing: greenlt
 bshlcolor=d23c3dff
 veriftext="Verifying..."
-verifcolor=ffffffff
-wrongtext="Failure!"
+verifcolor=dbdbb2ff			# text verifying: fg1
+wrongtext="Incorrect"
 wrongcolor=d23c3dff
 modifcolor=d23c3dff
-bgcolor=000000ff
-
-
+bgcolor=282828ff
 #
 # expert options (change at own risk!)
 #
