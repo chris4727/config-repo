@@ -90,6 +90,8 @@ alias br='vimv'				# Bulk rename
 #alias music='ncmpcpp'		# Music player
 #alias mail='neomutt'		# Email
 #alias rss='newsboat'		# RSS reader
+alias lock='betterlockscreen -l ~/.config/wallpaper/'				# Lock the computer
+alias wall='cp ~/.config/wallpaper/wallpaper.jpg'				# Copy image to wallpaper directory, and set as wallpaper (will need to refresh window manager).
 
 # Files
 #------------------------------------------------
