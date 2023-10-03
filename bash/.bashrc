@@ -177,3 +177,7 @@ alias gdi='git diff origin/main'						# Diff staged changes
 alias gvd='git difftool -t vimdiff -y'				# Git vimdiff
 alias gcm='git commit'								# Commit message in editor
 alias gpu='git push -u origin main'					# Git push to origin
+
+# Git config repo alias ~/.cfg
+#------------------------------------------------
+alias cfg='/usr/bin/git --git-dir=/home/cp/.cfg/ --work-tree=/home/cp'
