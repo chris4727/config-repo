@@ -335,16 +335,21 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Rofi launchers
 #================================================
 
-## rofi bindings fancy application menu ($mod+d)
+## Rofi application launcher
 bindsym $mod+space exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
-## rofi bindings for window menu ($mod+t)
+## Rofi window menu ($mod+t)
 bindsym $mod+Tab exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 # Power Profiles menu switcher (rofi)
-bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles \
+		-config ~/.config/rofi/rofidmenu.rasi
+
+# Rofi calculator
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort > /dev/null \
+		-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 # TODO setup rofi clipboard
